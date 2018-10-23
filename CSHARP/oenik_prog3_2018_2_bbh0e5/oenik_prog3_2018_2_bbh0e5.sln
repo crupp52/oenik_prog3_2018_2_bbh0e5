@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing", "VideoSharing\VideoSharing.csproj", "{4ECA18CF-9106-45B1-B8FE-52B5E6CFF3B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Data", "VideoSharing.Data\VideoSharing.Data.csproj", "{2752D022-1DB3-4119-B578-4E12880AD278}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Repository", "VideoSharing.Repository\VideoSharing.Repository.csproj", "{2098D839-6206-4BA1-A076-0B9ADC3B9F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Repository.Test", "VideoSharing.Repository.Test\VideoSharing.Repository.Test.csproj", "{8F832D02-1D72-476B-A5B2-CA00B2E98292}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Logic", "VideoSharing.Logic\VideoSharing.Logic.csproj", "{D324571A-420C-4453-826A-3A98955E0DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Logic.Test", "VideoSharing.Logic.Test\VideoSharing.Logic.Test.csproj", "{3BB5A61A-799D-401E-A2D6-1F3E01C45B04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Program", "VideoSharing.Program\VideoSharing.Program.csproj", "{88A057BE-290F-4766-AD6D-930FEEDD45A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +21,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4ECA18CF-9106-45B1-B8FE-52B5E6CFF3B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4ECA18CF-9106-45B1-B8FE-52B5E6CFF3B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4ECA18CF-9106-45B1-B8FE-52B5E6CFF3B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4ECA18CF-9106-45B1-B8FE-52B5E6CFF3B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2752D022-1DB3-4119-B578-4E12880AD278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2752D022-1DB3-4119-B578-4E12880AD278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2752D022-1DB3-4119-B578-4E12880AD278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2752D022-1DB3-4119-B578-4E12880AD278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F832D02-1D72-476B-A5B2-CA00B2E98292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F832D02-1D72-476B-A5B2-CA00B2E98292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F832D02-1D72-476B-A5B2-CA00B2E98292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F832D02-1D72-476B-A5B2-CA00B2E98292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D324571A-420C-4453-826A-3A98955E0DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D324571A-420C-4453-826A-3A98955E0DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D324571A-420C-4453-826A-3A98955E0DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D324571A-420C-4453-826A-3A98955E0DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB5A61A-799D-401E-A2D6-1F3E01C45B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB5A61A-799D-401E-A2D6-1F3E01C45B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB5A61A-799D-401E-A2D6-1F3E01C45B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB5A61A-799D-401E-A2D6-1F3E01C45B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A057BE-290F-4766-AD6D-930FEEDD45A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A057BE-290F-4766-AD6D-930FEEDD45A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A057BE-290F-4766-AD6D-930FEEDD45A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A057BE-290F-4766-AD6D-930FEEDD45A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
