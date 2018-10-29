@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Data", "VideoSharing.Data\VideoSharing.Data.csproj", "{2752D022-1DB3-4119-B578-4E12880AD278}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Repository", "VideoSharing.Repository\VideoSharing.Repository.csproj", "{2098D839-6206-4BA1-A076-0B9ADC3B9F08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Repository.Test", "VideoSharing.Repository.Test\VideoSharing.Repository.Test.csproj", "{8F832D02-1D72-476B-A5B2-CA00B2E98292}"
@@ -15,16 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Logic.Test", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Program", "VideoSharing.Program\VideoSharing.Program.csproj", "{88A057BE-290F-4766-AD6D-930FEEDD45A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Data", "VideoSharing.Data\VideoSharing.Data.csproj", "{0C616061-73C1-41CE-842A-BAB62FD59FCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2752D022-1DB3-4119-B578-4E12880AD278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2752D022-1DB3-4119-B578-4E12880AD278}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2752D022-1DB3-4119-B578-4E12880AD278}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2752D022-1DB3-4119-B578-4E12880AD278}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{88A057BE-290F-4766-AD6D-930FEEDD45A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88A057BE-290F-4766-AD6D-930FEEDD45A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88A057BE-290F-4766-AD6D-930FEEDD45A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C616061-73C1-41CE-842A-BAB62FD59FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C616061-73C1-41CE-842A-BAB62FD59FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C616061-73C1-41CE-842A-BAB62FD59FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C616061-73C1-41CE-842A-BAB62FD59FCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

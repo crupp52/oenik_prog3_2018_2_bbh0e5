@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="category_name" Type="varchar" MaxLength="30" />
+          <Property Name="category_adult" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="Creators">
+          <Key>
+            <PropertyRef Name="creator_id" />
+          </Key>
+          <Property Name="creator_id" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="creator_name" Type="varchar" MaxLength="30" />
+          <Property Name="creator_email" Type="varchar" MaxLength="70" />
+          <Property Name="creator_birth_date" Type="datetime" />
+          <Property Name="creator_premium" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="Uploads">
+          <Key>
+            <PropertyRef Name="upload_id" />
+          </Key>
+          <Property Name="upload_id" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="upload_date" Type="datetime" />
+          <Property Name="video_id" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="creator_id" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="video_id" />
+          </Key>
+          <Property Name="video_id" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="video_title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="video_description" Type="varchar" MaxLength="255" />
+          <Property Name="creator_id" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="category_id" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="category_vid_fk">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="creator_upl_fk">
+          <End Role="Creators" Type="Self.Creators" Multiplicity="1" />
+          <End Role="Uploads" Type="Self.Uploads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Creators">
+              <PropertyRef Name="creator_id" />
+            </Principal>
+            <Dependent Role="Uploads">
+              <PropertyRef Name="creator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="creator_vid_fk">
+          <End Role="Creators" Type="Self.Creators" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Creators">
+              <PropertyRef Name="creator_id" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="creator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="video_upl_fk">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Uploads" Type="Self.Uploads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="video_id" />
+            </Principal>
+            <Dependent Role="Uploads">
+              <PropertyRef Name="video_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SystemDBModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Creators" EntityType="Self.Creators" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uploads" EntityType="Self.Uploads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="category_vid_fk" Association="Self.category_vid_fk">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="creator_upl_fk" Association="Self.creator_upl_fk">
+            <End Role="Creators" EntitySet="Creators" />
+            <End Role="Uploads" EntitySet="Uploads" />
+          </AssociationSet>
+          <AssociationSet Name="creator_vid_fk" Association="Self.creator_vid_fk">
+            <End Role="Creators" EntitySet="Creators" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="video_upl_fk" Association="Self.video_upl_fk">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Uploads" EntitySet="Uploads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="category_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="category_adult" Type="Decimal" Precision="1" Scale="0" />
+          <NavigationProperty Name="Videos" Relationship="Self.category_vid_fk" FromRole="Categories" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Creators">
+          <Key>
+            <PropertyRef Name="creator_id" />
+          </Key>
+          <Property Name="creator_id" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="creator_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="creator_email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="creator_birth_date" Type="DateTime" Precision="3" />
+          <Property Name="creator_premium" Type="Decimal" Precision="1" Scale="0" />
+          <NavigationProperty Name="Uploads" Relationship="Self.creator_upl_fk" FromRole="Creators" ToRole="Uploads" />
+          <NavigationProperty Name="Videos" Relationship="Self.creator_vid_fk" FromRole="Creators" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Uploads">
+          <Key>
+            <PropertyRef Name="upload_id" />
+          </Key>
+          <Property Name="upload_id" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="upload_date" Type="DateTime" Precision="3" />
+          <Property Name="video_id" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="creator_id" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Creators" Relationship="Self.creator_upl_fk" FromRole="Uploads" ToRole="Creators" />
+          <NavigationProperty Name="Videos" Relationship="Self.video_upl_fk" FromRole="Uploads" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="video_id" />
+          </Key>
+          <Property Name="video_id" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="video_title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="video_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="creator_id" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="category_id" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="Self.category_vid_fk" FromRole="Videos" ToRole="Categories" />
+          <NavigationProperty Name="Creators" Relationship="Self.creator_vid_fk" FromRole="Videos" ToRole="Creators" />
+          <NavigationProperty Name="Uploads" Relationship="Self.video_upl_fk" FromRole="Videos" ToRole="Uploads" />
+        </EntityType>
+        <Association Name="category_vid_fk">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="creator_upl_fk">
+          <End Role="Creators" Type="Self.Creators" Multiplicity="1" />
+          <End Role="Uploads" Type="Self.Uploads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Creators">
+              <PropertyRef Name="creator_id" />
+            </Principal>
+            <Dependent Role="Uploads">
+              <PropertyRef Name="creator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="creator_vid_fk">
+          <End Role="Creators" Type="Self.Creators" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Creators">
+              <PropertyRef Name="creator_id" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="creator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="video_upl_fk">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Uploads" Type="Self.Uploads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="video_id" />
+            </Principal>
+            <Dependent Role="Uploads">
+              <PropertyRef Name="video_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SystemDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Creators" EntityType="Self.Creators" />
+          <EntitySet Name="Uploads" EntityType="Self.Uploads" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" />
+          <AssociationSet Name="category_vid_fk" Association="Self.category_vid_fk">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="creator_upl_fk" Association="Self.creator_upl_fk">
+            <End Role="Creators" EntitySet="Creators" />
+            <End Role="Uploads" EntitySet="Uploads" />
+          </AssociationSet>
+          <AssociationSet Name="creator_vid_fk" Association="Self.creator_vid_fk">
+            <End Role="Creators" EntitySet="Creators" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="video_upl_fk" Association="Self.video_upl_fk">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Uploads" EntitySet="Uploads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SystemDBModelStoreContainer" CdmEntityContainer="SystemDBEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="SystemDBModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="category_adult" ColumnName="category_adult" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Creators">
+            <EntityTypeMapping TypeName="SystemDBModel.Creators">
+              <MappingFragment StoreEntitySet="Creators">
+                <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+                <ScalarProperty Name="creator_name" ColumnName="creator_name" />
+                <ScalarProperty Name="creator_email" ColumnName="creator_email" />
+                <ScalarProperty Name="creator_birth_date" ColumnName="creator_birth_date" />
+                <ScalarProperty Name="creator_premium" ColumnName="creator_premium" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uploads">
+            <EntityTypeMapping TypeName="SystemDBModel.Uploads">
+              <MappingFragment StoreEntitySet="Uploads">
+                <ScalarProperty Name="upload_id" ColumnName="upload_id" />
+                <ScalarProperty Name="upload_date" ColumnName="upload_date" />
+                <ScalarProperty Name="video_id" ColumnName="video_id" />
+                <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="SystemDBModel.Videos">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="video_id" ColumnName="video_id" />
+                <ScalarProperty Name="video_title" ColumnName="video_title" />
+                <ScalarProperty Name="video_description" ColumnName="video_description" />
+                <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
