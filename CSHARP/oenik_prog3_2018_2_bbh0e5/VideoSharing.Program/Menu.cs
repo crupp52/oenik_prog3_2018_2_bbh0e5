@@ -1,4 +1,7 @@
-﻿namespace VideoSharing.Program
+﻿// <copyright file="Menu.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+namespace VideoSharing.Program
 {
     using System;
     using System.Collections.Generic;
@@ -6,8 +9,15 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    class Menu
+    /// <summary>
+    /// Manage and show menu options.
+    /// </summary>
+    internal class Menu
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Menu"/> class.
+        /// If the menu object will be instanced automatically called the PrintMenu method.
+        /// </summary>
         public Menu()
         {
             this.PrintMenu();
@@ -19,12 +29,12 @@
                 answ = Console.ReadLine();
 
                 Console.WriteLine("Még nincs kész!");
-                //switch (answ)
-                //{
-                //    default:
-                //        Console.WriteLine("Rossz lehetőség. A felsoroltak közül válassz!");
-                //        break;
-                //}
+                /*switch (answ)
+                {
+                    default:
+                        Console.WriteLine("Rossz lehetőség. A felsoroltak közül válassz!");
+                        break;
+                }*/
             }
 
             Console.WriteLine("A program futása véget ért.");
