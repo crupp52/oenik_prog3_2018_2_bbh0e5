@@ -19,7 +19,6 @@ namespace VideoSharing.Program
                 answ = Console.ReadLine();
 
                 Console.WriteLine("Még nincs kész!");
-                answ = "q";
                 //switch (answ)
                 //{
                 //    default:
@@ -33,29 +32,40 @@ namespace VideoSharing.Program
         {
             Console.WriteLine("Válassz az alábbi lehetőségek közül!");
 
+            Console.WriteLine("\nCRUD lekérdezések");
+
             Console.WriteLine("Videos tábla lekérdezései:");
-            Console.WriteLine("\tvideo-q1: Tábla kilistázása");
-            Console.WriteLine("\tvideo-q2: Tábla módosítása");
-            Console.WriteLine("\tvideo-q3: Táblához adás");
-            Console.WriteLine("\tvideo-q4: Táblából törlés");
+            Console.WriteLine("\tvid-q1: Tábla kilistázása");
+            Console.WriteLine("\tvid-q2: Tábla módosítása");
+            Console.WriteLine("\tvid-q3: Táblához adás");
+            Console.WriteLine("\tvid-q4: Táblából törlés");
 
             Console.WriteLine("Categories tábla lekérdezései:");
-            Console.WriteLine("\tcategory-q1: Tábla kilistázása");
-            Console.WriteLine("\tcategory-q2: Tábla módosítása");
-            Console.WriteLine("\tcategory-q3: Táblához adás");
-            Console.WriteLine("\tcategory-q4: Táblából törlés");
+            Console.WriteLine("\tcat-q1: Tábla kilistázása");
+            Console.WriteLine("\tcat-q2: Tábla módosítása");
+            Console.WriteLine("\tcat-q3: Táblához adás");
+            Console.WriteLine("\tcat-q4: Táblából törlés");
 
             Console.WriteLine("Creators tábla lekérdezései:");
-            Console.WriteLine("\tcreator-q1: Tábla kilistázása");
-            Console.WriteLine("\tcreator-q2: Tábla módosítása");
-            Console.WriteLine("\tcreator-q3: Táblához adás");
-            Console.WriteLine("\tcreator-q4: Táblából törlés");
+            Console.WriteLine("\tcre-q1: Tábla kilistázása");
+            Console.WriteLine("\tcre-q2: Tábla módosítása");
+            Console.WriteLine("\tcre-q3: Táblához adás");
+            Console.WriteLine("\tcre-q4: Táblából törlés");
 
             Console.WriteLine("Uploads tábla lekérdezései:");
-            Console.WriteLine("\tupload-q1: Tábla kilistázása");
-            Console.WriteLine("\tupload-q2: Tábla módosítása");
-            Console.WriteLine("\tupload-q3: Táblához adás");
-            Console.WriteLine("\tupload-q4: Táblából törlés");
+            Console.WriteLine("\tupl-q1: Tábla kilistázása");
+            Console.WriteLine("\tupl-q2: Tábla módosítása");
+            Console.WriteLine("\tupl-q3: Táblához adás");
+            Console.WriteLine("\tupl-q4: Táblából törlés");
+
+            Console.WriteLine("\nNem CRUD lekérdezések");
+
+            Console.WriteLine("\tcustom-q1: Videók címének és készítőjének neve");
+            Console.WriteLine("\tcustom-q2: Videók és kategóriájuk");
+            Console.WriteLine("\tcustom-q3: Videók és feltöltési idejük");
+
+            Console.WriteLine("\nJAVA lekérdezés");
+            Console.WriteLine("\tjava: Küldött adat feldolgozása");
         }
     }
 }
