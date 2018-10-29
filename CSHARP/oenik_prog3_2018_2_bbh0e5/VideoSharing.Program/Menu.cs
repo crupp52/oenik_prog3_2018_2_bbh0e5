@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VideoSharing.Program
+﻿namespace VideoSharing.Program
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     class Menu
     {
         public Menu()
@@ -26,6 +26,9 @@ namespace VideoSharing.Program
                 //        break;
                 //}
             }
+
+            Console.WriteLine("A program futása véget ért.");
+            Console.ReadKey();
         }
 
         private void PrintMenu()
@@ -66,6 +69,9 @@ namespace VideoSharing.Program
 
             Console.WriteLine("\nJAVA lekérdezés");
             Console.WriteLine("\tjava: Küldött adat feldolgozása");
+
+            Console.WriteLine("\nProgram leállítása");
+            Console.WriteLine("\tq: Kilépés");
         }
     }
 }

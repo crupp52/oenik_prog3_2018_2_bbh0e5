@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace VideoSharing.Data
 {
-    public class Class1
+    public class TestQueries
     {
+        public void ListAllVideo()
+        {
+            SystemDBEntities entities = new SystemDBEntities();
+            var q = from e in entities.Categories
+                    select e;
+        }
     }
 }
