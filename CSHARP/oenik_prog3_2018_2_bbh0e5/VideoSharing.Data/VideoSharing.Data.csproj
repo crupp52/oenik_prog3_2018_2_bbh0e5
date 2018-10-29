@@ -67,7 +67,6 @@
     <Compile Include="Categories.cs">
       <DependentUpon>DBModell.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Creators.cs">
       <DependentUpon>DBModell.tt</DependentUpon>
     </Compile>
