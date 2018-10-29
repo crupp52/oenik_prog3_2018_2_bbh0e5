@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VideoSharing.Data;
 
 namespace VideoSharing.Program
 {
-    class Program
+    class VideosQuery
     {
-        static void Main(string[] args)
+        SystemDBEntities db;
+
+        public VideosQuery()
         {
-            Menu m = new Menu();
+            this.db = new SystemDBEntities();
         }
     }
 }
