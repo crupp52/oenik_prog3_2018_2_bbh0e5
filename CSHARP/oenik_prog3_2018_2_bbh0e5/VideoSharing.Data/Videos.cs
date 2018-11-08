@@ -23,11 +23,10 @@ namespace VideoSharing.Data
         public decimal video_id { get; set; }
         public string video_title { get; set; }
         public string video_description { get; set; }
-        public decimal creator_id { get; set; }
+        public Nullable<decimal> video_views { get; set; }
         public decimal category_id { get; set; }
     
         public virtual Categories Categories { get; set; }
-        public virtual Creators Creators { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Uploads> Uploads { get; set; }
     }

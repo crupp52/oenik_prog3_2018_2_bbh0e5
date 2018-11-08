@@ -63,42 +63,42 @@ INSERT INTO Categories (category_id, category_name, category_adult)
 VALUES (315, 'Drama', 0);
 
 /*Videos table*/
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (61, 'Lecsapolt óceán - 1. rész', 'natgeo TV - Eredeti sorozat', 9, 33);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (62, 'Lecsapolt óceán - 2. rész', 'natgeo TV - Eredeti sorozat', 9, 33);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (63, 'Lecsapolt óceán - 3. rész', 'natgeo TV - Eredeti sorozat', 9, 33);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (64, 'Lecsapolt óceán - 4. rész', 'natgeo TV - Eredeti sorozat', 9, 33);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (65, 'Lecsapolt óceán - 5. rész', 'natgeo TV - Eredeti sorozat', 9, 33);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (66, 'Venom - Előzetes 2018', 'Venom - Előzetes 2018', 3, 31);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (67, 'GET OUT (2017)', 'Egész estés horror film', 1, 38);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (68, 'PSYCHO (1960)', 'Klasszikus horror, a legjobbak között van!', 2, 37);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (69, 'KING KONG (1933)', 'Klasszikus horror, a legjobbak között van!', 2, 38);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (610, 'Ultimate Crash Test', 'Series 3 (2003)', 15, 35);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (611, 'Cars 1', 'Egész estés családi animációsfilm', 13, 314);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (612, 'Cars 2', 'Egész estés családi animációsfilm', 12, 314);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (613, 'Cars 3', 'Egész estés családi animációsfilm', 11, 314);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (614, 'Showder Klub s09e01', 'A TV adás rögzített másolata.', 10, 34);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (615, 'Showder Klub s09e02', 'A TV adás rögzített másolata.', 10, 34);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (616, 'Showder Klub s09e03', 'A TV adás rögzített másolata.', 10, 34);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (617, 'ROAD TO FORTNITE PRO', 'I KNOW I AM BAD...', 6, 36);
-INSERT INTO Videos (video_id, video_title, video_description, creator_id, category_id)
-VALUES (618, 'Fortnite All Dances Season 1 to 4', 'Fortnite All Dances Season 1 to 4', 6, 36);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (61, 'Lecsapolt óceán - 1. rész', 'natgeo TV - Eredeti sorozat', 18321, 33);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (62, 'Lecsapolt óceán - 2. rész', 'natgeo TV - Eredeti sorozat', 41423, 33);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (63, 'Lecsapolt óceán - 3. rész', 'natgeo TV - Eredeti sorozat', 42431, 33);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (64, 'Lecsapolt óceán - 4. rész', 'natgeo TV - Eredeti sorozat', 7432, 33);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (65, 'Lecsapolt óceán - 5. rész', 'natgeo TV - Eredeti sorozat', 31231, 33);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (66, 'Venom - Előzetes 2018', 'Venom - Előzetes 2018', 57843, 31);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (67, 'GET OUT (2017)', 'Egész estés horror film', 73273, 38);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (68, 'PSYCHO (1960)', 'Klasszikus horror, a legjobbak között van!', 63260, 37);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (69, 'KING KONG (1933)', 'Klasszikus horror, a legjobbak között van!', 547834, 38);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (610, 'Ultimate Crash Test', 'Series 3 (2003)', 32100, 35);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (611, 'Cars 1', 'Egész estés családi animációsfilm', 323688, 314);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (612, 'Cars 2', 'Egész estés családi animációsfilm', 976042, 314);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (613, 'Cars 3', 'Egész estés családi animációsfilm', 1000334, 314);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (614, 'Showder Klub s09e01', 'A TV adás rögzített másolata.', 432100, 34);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (615, 'Showder Klub s09e02', 'A TV adás rögzített másolata.', 300021, 34);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (616, 'Showder Klub s09e03', 'A TV adás rögzített másolata.', 435010, 34);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (617, 'ROAD TO FORTNITE PRO', 'I KNOW I AM BAD...', 10523986, 36);
+INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+VALUES (618, 'Fortnite All Dances Season 1 to 4', 'Fortnite All Dances Season 1 to 4', 36234701, 36);
 
 /*Uploads table*/
 INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)

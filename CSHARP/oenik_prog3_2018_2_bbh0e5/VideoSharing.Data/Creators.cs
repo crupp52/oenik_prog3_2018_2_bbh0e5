@@ -18,7 +18,6 @@ namespace VideoSharing.Data
         public Creators()
         {
             this.Uploads = new HashSet<Uploads>();
-            this.Videos = new HashSet<Videos>();
         }
     
         public decimal creator_id { get; set; }
@@ -29,7 +28,5 @@ namespace VideoSharing.Data
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Uploads> Uploads { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Videos> Videos { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ASUS\Documents\oenik_prog3_2018_2_bbh0e5\CSHARP\oenik_prog3_2018_2_bbh0e5\VideoSharing.Data\DBModell.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ASUS\Documents\oenik_prog3_2018_2_bbh0e5\CSHARP\oenik_prog3_2018_2_bbh0e5\VideoSharing.Data\DBModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
