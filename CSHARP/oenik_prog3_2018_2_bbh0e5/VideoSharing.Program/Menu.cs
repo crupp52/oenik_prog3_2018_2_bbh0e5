@@ -14,74 +14,94 @@ namespace VideoSharing.Program
     /// </summary>
     internal class Menu
     {
+        private static int index = 0;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu"/> class.
         /// If the menu object will be instanced automatically called the PrintMenu method.
         /// </summary>
         public Menu()
         {
-            this.PrintMenu();
+            List<string> menuItems = new List<string>() {
+                "Videos tábla kilistázása",
+                "Videos tábla módosítása",
+                "Videos tábla hozzáfűzés",
+                "Videos tábla módosítás",
+                "Categories tábla kilistázása",
+                "Categories tábla módosítása",
+                "Categories tábla hozzáfűzés",
+                "Categories tábla módosítás",
+                "Creators tábla kilistázása",
+                "Creators tábla módosítása",
+                "Creators tábla hozzáfűzés",
+                "Creators tábla módosítás",
+                "Uploads tábla kilistázása",
+                "Uploads tábla módosítása",
+                "Uploads tábla hozzáfűzés",
+                "Uploads tábla módosítás",
+                "Program bezárása"
+            };
 
-            string answ = string.Empty;
-            while (answ != "q")
+            Console.CursorVisible = false;
+            while (true)
             {
-                Console.Write("parancs: ");
-                answ = Console.ReadLine();
-
-                Console.WriteLine("Még nincs kész!");
-                /*switch (answ)
+                int selectedMenuItemIndex = GetSelectedIndex(menuItems);
+                if (menuItems.Count - 1 == selectedMenuItemIndex)
                 {
-                    default:
-                        Console.WriteLine("Rossz lehetőség. A felsoroltak közül válassz!");
-                        break;
-                }*/
+                    Environment.Exit(0);
+                }
             }
-
-            Console.WriteLine("A program futása véget ért.");
-            Console.ReadKey();
         }
 
-        private void PrintMenu()
+        private static int GetSelectedIndex(List<string> items)
         {
-            Console.WriteLine("Válassz az alábbi lehetőségek közül!");
+            DrawMenu(items);
 
-            Console.WriteLine("\nCRUD lekérdezések");
+            ConsoleKeyInfo ckey = Console.ReadKey();
 
-            Console.WriteLine("Videos tábla lekérdezései:");
-            Console.WriteLine("\tvid-q1: Tábla kilistázása");
-            Console.WriteLine("\tvid-q2: Tábla módosítása");
-            Console.WriteLine("\tvid-q3: Táblához adás");
-            Console.WriteLine("\tvid-q4: Táblából törlés");
+            if (ckey.Key == ConsoleKey.DownArrow)
+            {
+                if (index != items.Count - 1)
+                {
+                    index++;
+                }
+            }
+            else if (ckey.Key == ConsoleKey.UpArrow)
+            {
+                if (index > 0)
+                {
+                    index--;
+                }
+            }
+            else if (ckey.Key == ConsoleKey.Enter)
+            {
+                Console.Clear();
+                return index;
+            }
 
-            Console.WriteLine("Categories tábla lekérdezései:");
-            Console.WriteLine("\tcat-q1: Tábla kilistázása");
-            Console.WriteLine("\tcat-q2: Tábla módosítása");
-            Console.WriteLine("\tcat-q3: Táblához adás");
-            Console.WriteLine("\tcat-q4: Táblából törlés");
+            Console.Clear();
+            return -1;
+        }
 
-            Console.WriteLine("Creators tábla lekérdezései:");
-            Console.WriteLine("\tcre-q1: Tábla kilistázása");
-            Console.WriteLine("\tcre-q2: Tábla módosítása");
-            Console.WriteLine("\tcre-q3: Táblához adás");
-            Console.WriteLine("\tcre-q4: Táblából törlés");
+        public static void DrawMenu(List<string> items)
+        {
+            Console.WriteLine("Válassz az alábbi lehetőségek közül:");
 
-            Console.WriteLine("Uploads tábla lekérdezései:");
-            Console.WriteLine("\tupl-q1: Tábla kilistázása");
-            Console.WriteLine("\tupl-q2: Tábla módosítása");
-            Console.WriteLine("\tupl-q3: Táblához adás");
-            Console.WriteLine("\tupl-q4: Táblából törlés");
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (i == index)
+                {
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    Console.ForegroundColor = ConsoleColor.Black;
 
-            Console.WriteLine("\nNem CRUD lekérdezések");
-
-            Console.WriteLine("\tcustom-q1: Videók címének és készítőjének neve");
-            Console.WriteLine("\tcustom-q2: Videók és kategóriájuk");
-            Console.WriteLine("\tcustom-q3: Videók és feltöltési idejük");
-
-            Console.WriteLine("\nJAVA lekérdezés");
-            Console.WriteLine("\tjava: Küldött adat feldolgozása");
-
-            Console.WriteLine("\nProgram leállítása");
-            Console.WriteLine("\tq: Kilépés");
+                    Console.WriteLine(items[i]);
+                }
+                else
+                {
+                    Console.WriteLine(items[i]);
+                }
+                Console.ResetColor();
+            }
         }
     }
 }
