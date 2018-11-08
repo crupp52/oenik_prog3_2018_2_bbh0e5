@@ -14,14 +14,14 @@ namespace VideoSharing.Program
     /// </summary>
     internal class Menu
     {
-        private static int index = 0;
+        public int SelectedMenuItemIndex { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Menu"/> class.
-        /// If the menu object will be instanced automatically called the PrintMenu method.
-        /// </summary>
+        private int index;
+
         public Menu()
         {
+            this.SelectedMenuItemIndex = -1;
+
             List<string> menuItems = new List<string>() {
                 "Videos tábla kilistázása",
                 "Videos tábla módosítása",
@@ -43,17 +43,13 @@ namespace VideoSharing.Program
             };
 
             Console.CursorVisible = false;
-            while (true)
+            while (SelectedMenuItemIndex == -1)
             {
-                int selectedMenuItemIndex = GetSelectedIndex(menuItems);
-                if (menuItems.Count - 1 == selectedMenuItemIndex)
-                {
-                    Environment.Exit(0);
-                }
+                this.SelectedMenuItemIndex = GetSelectedIndex(menuItems);
             }
         }
 
-        private static int GetSelectedIndex(List<string> items)
+        private int GetSelectedIndex(List<string> items)
         {
             DrawMenu(items);
 
@@ -83,11 +79,7 @@ namespace VideoSharing.Program
             return -1;
         }
 
-        /// <summary>
-        /// Draw the menu options.
-        /// </summary>
-        /// <param name="items">List of menu options</param>
-        public static void DrawMenu(List<string> items)
+        private void DrawMenu(List<string> items)
         {
             Console.WriteLine("Válassz az alábbi lehetőségek közül:");
 
