@@ -1,139 +1,139 @@
-﻿/*Cretors table*/
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (1, 'Ava Jackson', 'ava.jackson18@example.com', '1980-10-06' , 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (2, 'Ben Kuhn', 'ben.kuhn39@example.com', '1970-10-27', 1);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (3, 'Bella Gordon', 'bella.gordon33@example.com', '1971-09-01', 1);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (4, 'Isobel Hansen', 'isobel.hansen75@example.com', '1975-03-13', 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (5, 'Jose Chapman', 'jose.chapman13@example.com', '1977-01-11', 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (6, 'Laurie George', 'laurie.george14@example.com', '1977-07-13', 1);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (7, 'Frances Alexander', 'frances.alexander96@example.com', '1979-05-22', 1);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (8, 'Ann Cox', 'ann.cox66@example.com', '1981-02-10', 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (9, 'Alvin Martinez', 'alvin.martinez54@example.com', '1981-09-09', 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (10, 'Terrance Robertson', 'terrance.robertson11@example.com', '1981-10-01', 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (11, 'Constance Obrien', 'constance.obrien89@example.com', '1982-02-24', 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (12, 'Eva Montgomery', 'eva.montgomery85@example.com', '1984-09-14', 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (13, 'Jack Silva', 'jack.silva33@example.com', '1986-05-22', 1);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (14, 'Marcus Franklin', 'Marcus Franklin', '1986-10-27', 0);
-INSERT INTO Creators (creator_id, creator_name, creator_email, creator_birth_date, creator_premium)
-VALUES (15, 'Sofia Bishop', 'sofia.bishop21@example.com', '1987-07-16', 0);
+﻿/*CRETORS TABLE*/
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (1, 'AVA JACKSON', 'AVA.JACKSON18@EXAMPLE.COM', '1980-10-06' , 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (2, 'BEN KUHN', 'BEN.KUHN39@EXAMPLE.COM', '1970-10-27', 1);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (3, 'BELLA GORDON', 'BELLA.GORDON33@EXAMPLE.COM', '1971-09-01', 1);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (4, 'ISOBEL HANSEN', 'ISOBEL.HANSEN75@EXAMPLE.COM', '1975-03-13', 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (5, 'JOSE CHAPMAN', 'JOSE.CHAPMAN13@EXAMPLE.COM', '1977-01-11', 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (6, 'LAURIE GEORGE', 'LAURIE.GEORGE14@EXAMPLE.COM', '1977-07-13', 1);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (7, 'FRANCES ALEXANDER', 'FRANCES.ALEXANDER96@EXAMPLE.COM', '1979-05-22', 1);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (8, 'ANN COX', 'ANN.COX66@EXAMPLE.COM', '1981-02-10', 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (9, 'ALVIN MARTINEZ', 'ALVIN.MARTINEZ54@EXAMPLE.COM', '1981-09-09', 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (10, 'TERRANCE ROBERTSON', 'TERRANCE.ROBERTSON11@EXAMPLE.COM', '1981-10-01', 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (11, 'CONSTANCE OBRIEN', 'CONSTANCE.OBRIEN89@EXAMPLE.COM', '1982-02-24', 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (12, 'EVA MONTGOMERY', 'EVA.MONTGOMERY85@EXAMPLE.COM', '1984-09-14', 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (13, 'JACK SILVA', 'JACK.SILVA33@EXAMPLE.COM', '1986-05-22', 1);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (14, 'MARCUS FRANKLIN', 'MARCUS FRANKLIN', '1986-10-27', 0);
+INSERT INTO CREATORS (CREATOR_ID, CREATOR_NAME, CREATOR_EMAIL, CREATOR_BIRTH_DATE, CREATOR_PREMIUM)
+VALUES (15, 'SOFIA BISHOP', 'SOFIA.BISHOP21@EXAMPLE.COM', '1987-07-16', 0);
 
-/*Categories table*/
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (31, 'Film and Animation', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (32, 'Comedy', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (33, 'Education', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (34, 'Entertainment', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (35, 'Cars and Vehicles', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (36, 'Gaming', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (37, 'Thriller', 1);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (38, 'Horror', 1);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (39, 'Foreign', 1);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (310, 'Videoblogging', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (311, 'Howto and Style', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (312, 'Movies', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (313, 'Nonprofits and Activism', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (314, 'Family', 0);
-INSERT INTO Categories (category_id, category_name, category_adult)
-VALUES (315, 'Drama', 0);
+/*CATEGORIES TABLE*/
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (31, 'FILM AND ANIMATION', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (32, 'COMEDY', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (33, 'EDUCATION', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (34, 'ENTERTAINMENT', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (35, 'CARS AND VEHICLES', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (36, 'GAMING', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (37, 'THRILLER', 1);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (38, 'HORROR', 1);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (39, 'FOREIGN', 1);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (310, 'VIDEOBLOGGING', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (311, 'HOWTO AND STYLE', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (312, 'MOVIES', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (313, 'NONPROFITS AND ACTIVISM', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (314, 'FAMILY', 0);
+INSERT INTO CATEGORIES (CATEGORY_ID, CATEGORY_NAME, CATEGORY_ADULT)
+VALUES (315, 'DRAMA', 0);
 
-/*Videos table*/
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (61, 'Lecsapolt óceán - 1. rész', 'natgeo TV - Eredeti sorozat', 18321, 33);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (62, 'Lecsapolt óceán - 2. rész', 'natgeo TV - Eredeti sorozat', 41423, 33);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (63, 'Lecsapolt óceán - 3. rész', 'natgeo TV - Eredeti sorozat', 42431, 33);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (64, 'Lecsapolt óceán - 4. rész', 'natgeo TV - Eredeti sorozat', 7432, 33);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (65, 'Lecsapolt óceán - 5. rész', 'natgeo TV - Eredeti sorozat', 31231, 33);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (66, 'Venom - Előzetes 2018', 'Venom - Előzetes 2018', 57843, 31);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (67, 'GET OUT (2017)', 'Egész estés horror film', 73273, 38);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (68, 'PSYCHO (1960)', 'Klasszikus horror, a legjobbak között van!', 63260, 37);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (69, 'KING KONG (1933)', 'Klasszikus horror, a legjobbak között van!', 547834, 38);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (610, 'Ultimate Crash Test', 'Series 3 (2003)', 32100, 35);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (611, 'Cars 1', 'Egész estés családi animációsfilm', 323688, 314);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (612, 'Cars 2', 'Egész estés családi animációsfilm', 976042, 314);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (613, 'Cars 3', 'Egész estés családi animációsfilm', 1000334, 314);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (614, 'Showder Klub s09e01', 'A TV adás rögzített másolata.', 432100, 34);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (615, 'Showder Klub s09e02', 'A TV adás rögzített másolata.', 300021, 34);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (616, 'Showder Klub s09e03', 'A TV adás rögzített másolata.', 435010, 34);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
+/*VIDEOS TABLE*/
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (61, 'LECSAPOLT ÓCEÁN - 1. RÉSZ', 'NATGEO TV - EREDETI SOROZAT', 18321, 33);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (62, 'LECSAPOLT ÓCEÁN - 2. RÉSZ', 'NATGEO TV - EREDETI SOROZAT', 41423, 33);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (63, 'LECSAPOLT ÓCEÁN - 3. RÉSZ', 'NATGEO TV - EREDETI SOROZAT', 42431, 33);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (64, 'LECSAPOLT ÓCEÁN - 4. RÉSZ', 'NATGEO TV - EREDETI SOROZAT', 7432, 33);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (65, 'LECSAPOLT ÓCEÁN - 5. RÉSZ', 'NATGEO TV - EREDETI SOROZAT', 31231, 33);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (66, 'VENOM - ELŐZETES 2018', 'VENOM - ELŐZETES 2018', 57843, 31);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (67, 'GET OUT (2017)', 'EGÉSZ ESTÉS HORROR FILM', 73273, 38);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (68, 'PSYCHO (1960)', 'KLASSZIKUS HORROR, A LEGJOBBAK KÖZÖTT VAN!', 63260, 37);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (69, 'KING KONG (1933)', 'KLASSZIKUS HORROR, A LEGJOBBAK KÖZÖTT VAN!', 547834, 38);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (610, 'ULTIMATE CRASH TEST', 'SERIES 3 (2003)', 32100, 35);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (611, 'CARS 1', 'EGÉSZ ESTÉS CSALÁDI ANIMÁCIÓSFILM', 323688, 314);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (612, 'CARS 2', 'EGÉSZ ESTÉS CSALÁDI ANIMÁCIÓSFILM', 976042, 314);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (613, 'CARS 3', 'EGÉSZ ESTÉS CSALÁDI ANIMÁCIÓSFILM', 1000334, 314);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (614, 'SHOWDER KLUB S09E01', 'A TV ADÁS RÖGZÍTETT MÁSOLATA.', 432100, 34);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (615, 'SHOWDER KLUB S09E02', 'A TV ADÁS RÖGZÍTETT MÁSOLATA.', 300021, 34);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (616, 'SHOWDER KLUB S09E03', 'A TV ADÁS RÖGZÍTETT MÁSOLATA.', 435010, 34);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
 VALUES (617, 'ROAD TO FORTNITE PRO', 'I KNOW I AM BAD...', 10523986, 36);
-INSERT INTO Videos (video_id, video_title, video_description, video_views, category_id)
-VALUES (618, 'Fortnite All Dances Season 1 to 4', 'Fortnite All Dances Season 1 to 4', 36234701, 36);
+INSERT INTO VIDEOS (VIDEO_ID, VIDEO_TITLE, VIDEO_DESCRIPTION, VIDEO_VIEWS, CATEGORY_ID)
+VALUES (618, 'FORTNITE ALL DANCES SEASON 1 TO 4', 'FORTNITE ALL DANCES SEASON 1 TO 4', 36234701, 36);
 
-/*Uploads table*/
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+/*UPLOADS TABLE*/
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (1, '2009-02-27', 61, 9);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (2, '2009-03-31', 62, 9);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (3, '2009-07-31', 63, 9);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (4, '2009-11-15', 64, 9);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (5, '2010-02-27', 65, 9);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (6, '2011-05-08', 66, 3);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (7, '2011-06-27', 67, 1);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (8, '2012-01-12', 68, 2);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (9, '2012-04-05', 69, 2);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (10, '2012-12-08', 610, 15);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (11, '2013-07-09', 611, 13);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (12, '2014-01-31', 612, 12);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (13, '2014-10-25', 613, 11);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (14, '2016-07-27', 614, 10);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (15, '2016-10-12', 615, 10);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (16, '2017-02-19', 616, 10);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (17, '2018-03-17', 617, 6);
-INSERT INTO Uploads (upload_id, upload_date, video_id, creator_id)
+INSERT INTO UPLOADS (UPLOAD_ID, UPLOAD_DATE, VIDEO_ID, CREATOR_ID)
 VALUES (18, '2018-09-09', 618, 6);
