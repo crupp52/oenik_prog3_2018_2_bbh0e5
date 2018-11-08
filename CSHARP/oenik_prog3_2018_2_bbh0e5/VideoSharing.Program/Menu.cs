@@ -83,6 +83,10 @@ namespace VideoSharing.Program
             return -1;
         }
 
+        /// <summary>
+        /// Draw the menu options.
+        /// </summary>
+        /// <param name="items">List of menu options</param>
         public static void DrawMenu(List<string> items)
         {
             Console.WriteLine("Válassz az alábbi lehetőségek közül:");

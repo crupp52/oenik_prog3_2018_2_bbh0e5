@@ -1,4 +1,4 @@
-﻿// <copyright file="Program.cs" company="PlaceholderCompany">
+﻿// <copyright file="Core.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -11,17 +11,19 @@ namespace VideoSharing.Program
     using System.Threading.Tasks;
 
     /// <summary>
-    /// This is the core of the program.
+    /// This class will call Menu, and Logic functions.
     /// </summary>
-    internal class Program
+    public class Core
     {
+        private Menu m;
+
         /// <summary>
-        /// The program core, the run starts from this point.
+        /// Initializes a new instance of the <see cref="Core"/> class.
+        /// Set the menu object and draw menu.
         /// </summary>
-        /// <param name="args">Auto generated argument</param>
-        public static void Main(string[] args)
+        public Core()
         {
-            Core core = new Core();
+            this.m = new Menu();
         }
     }
 }

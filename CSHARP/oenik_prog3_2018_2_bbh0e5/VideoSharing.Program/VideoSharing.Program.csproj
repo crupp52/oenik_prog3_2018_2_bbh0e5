@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +90,10 @@
     <ProjectReference Include="..\VideoSharing.Data\VideoSharing.Data.csproj">
       <Project>{c87b1cc1-c1ab-4f91-aee3-d00794b79640}</Project>
       <Name>VideoSharing.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoSharing.Logic\VideoSharing.Logic.csproj">
+      <Project>{d324571a-420c-4453-826a-3a98955e0dca}</Project>
+      <Name>VideoSharing.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
