@@ -12,17 +12,30 @@ namespace VideoSharing.Program
     /// <summary>
     /// Manage and show menu options.
     /// </summary>
-    internal class Menu
+    public class Menu
     {
-        public int SelectedMenuItemIndex { get; set; }
+        /// <summary>
+        /// Gets menu option.
+        /// </summary>
+        public List<string> MenuItems { get; }
 
-        private int index;
+        /// <summary>
+        /// Gets the selected menu option.
+        /// </summary>
+        public int SelectedMenuItemIndex { get; }
 
+        private int Index { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Menu"/> class.
+        /// Here set the list of menu items, draw menu and store the selected menu option.
+        /// </summary>
         public Menu()
         {
             this.SelectedMenuItemIndex = -1;
 
-            List<string> menuItems = new List<string>() {
+            this.MenuItems = new List<string>()
+            {
                 "Videos tábla kilistázása",
                 "Videos tábla módosítása",
                 "Videos tábla hozzáfűzés",
@@ -43,36 +56,36 @@ namespace VideoSharing.Program
             };
 
             Console.CursorVisible = false;
-            while (SelectedMenuItemIndex == -1)
+            while (this.SelectedMenuItemIndex == -1)
             {
-                this.SelectedMenuItemIndex = GetSelectedIndex(menuItems);
+                this.SelectedMenuItemIndex = this.GetSelectedIndex(this.MenuItems);
             }
         }
 
         private int GetSelectedIndex(List<string> items)
         {
-            DrawMenu(items);
+            this.DrawMenu(items);
 
             ConsoleKeyInfo ckey = Console.ReadKey();
 
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index != items.Count - 1)
+                if (this.Index != items.Count - 1)
                 {
-                    index++;
+                    this.Index++;
                 }
             }
             else if (ckey.Key == ConsoleKey.UpArrow)
             {
-                if (index > 0)
+                if (this.Index > 0)
                 {
-                    index--;
+                    this.Index--;
                 }
             }
             else if (ckey.Key == ConsoleKey.Enter)
             {
                 Console.Clear();
-                return index;
+                return this.Index;
             }
 
             Console.Clear();
@@ -85,7 +98,7 @@ namespace VideoSharing.Program
 
             for (int i = 0; i < items.Count; i++)
             {
-                if (i == index)
+                if (i == this.Index)
                 {
                     Console.BackgroundColor = ConsoleColor.Magenta;
                     Console.ForegroundColor = ConsoleColor.Black;
@@ -96,6 +109,7 @@ namespace VideoSharing.Program
                 {
                     Console.WriteLine(items[i]);
                 }
+
                 Console.ResetColor();
             }
         }

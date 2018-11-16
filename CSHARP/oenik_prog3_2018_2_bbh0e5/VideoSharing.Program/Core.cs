@@ -24,6 +24,9 @@ namespace VideoSharing.Program
         public Core()
         {
             this.m = new Menu();
+
+            Console.WriteLine(this.m.MenuItems[this.m.SelectedMenuItemIndex]);
+            Console.ReadKey();
         }
     }
 }
