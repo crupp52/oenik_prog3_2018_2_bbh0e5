@@ -14,7 +14,7 @@ namespace VideoSharing.Repository
     /// <summary>
     /// Upload table CRUD commands.
     /// </summary>
-    class UploadRepository : IRepository<Uploads>
+    public class UploadRepository : IRepository<Uploads>
     {
         private SystemDBEntities vs;
 
@@ -24,24 +24,46 @@ namespace VideoSharing.Repository
         /// </summary>
         public UploadRepository()
         {
-            throw new NotImplementedException();
+            this.vs = new SystemDBEntities();
         }
 
-        public void Delete(Uploads item)
+        /// <summary>
+        /// Delete from Uploads table.
+        /// </summary>
+        /// <param name="id">Upload id what will delete.</param>
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Uploads item = (from e in this.vs.Uploads
+                            where e.upload_id == id
+                            select e).FirstOrDefault();
+
+            this.vs.Uploads.Remove(item);
         }
 
-        public IQueryable<Uploads> GetAll()
+        /// <summary>
+        /// Get all rows from Uploads table.
+        /// </summary>
+        /// <returns>IEnumerable collection what containts all rows from Upload table-</returns>
+        public IEnumerable<Uploads> GetAll()
         {
-            throw new NotImplementedException();
+            return from e in this.vs.Uploads
+                   select e;
         }
 
+        /// <summary>
+        /// Add a new row to Uploads table.
+        /// </summary>
+        /// <param name="item">This is the new item.</param>
         public void Insert(Uploads item)
         {
+            this.vs.Uploads.Add(item);
         }
 
-        public void Modify(Uploads item)
+        /// <summary>
+        /// Update a row in Uploads table.
+        /// </summary>
+        /// <param name="item">This is the modified row.</param>
+        public void Update(Uploads item)
         {
             throw new NotImplementedException();
         }

@@ -10,13 +10,17 @@ namespace VideoSharing.Repository
     using System.Text;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Repository schema, what must be declarate.
+    /// </summary>
+    /// <typeparam name="T">T type what will be Uploads, Videos, Creators, Categories</typeparam>
     public interface IRepository<T>
     {
         /// <summary>
         /// Get all item from table
         /// </summary>
         /// <returns>Return an IQueryable variable what we can use for the query.</returns>
-        IQueryable<T> GetAll();
+        IEnumerable<T> GetAll();
 
         /// <summary>
         /// Insert the selected item.
@@ -25,15 +29,15 @@ namespace VideoSharing.Repository
         void Insert(T item);
 
         /// <summary>
-        /// Delete the selected item.
+        /// Update the selected item.
         /// </summary>
-        /// <param name="item">The item, what will be delete.</param>
-        void Delete(T item);
+        /// <param name="item">The item, what will Update.</param>
+        void Update(T item);
 
         /// <summary>
-        /// Modify the selected item.
+        /// Delete the selected item.
         /// </summary>
-        /// <param name="item">The item, what will be modify.</param>
-        void Modify(T item);
+        /// <param name="id">The item, what will delete.</param>
+        void Delete(int id);
     }
 }
