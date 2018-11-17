@@ -15,18 +15,6 @@ namespace VideoSharing.Program
     public class Menu
     {
         /// <summary>
-        /// Gets menu option.
-        /// </summary>
-        public List<string> MenuItems { get; }
-
-        /// <summary>
-        /// Gets the selected menu option.
-        /// </summary>
-        public int SelectedMenuItemIndex { get; }
-
-        private int Index { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Menu"/> class.
         /// Here set the list of menu items, draw menu and store the selected menu option.
         /// </summary>
@@ -35,34 +23,50 @@ namespace VideoSharing.Program
             this.SelectedMenuItemIndex = -1;
 
             this.MenuItems = new List<string>()
-            {
-                "Videos tábla kilistázása",
-                "Videos tábla módosítása",
-                "Videos tábla hozzáfűzés",
-                "Videos tábla módosítás",
+             {
                 "Categories tábla kilistázása",
-                "Categories tábla módosítása",
                 "Categories tábla hozzáfűzés",
                 "Categories tábla módosítás",
+                "Categories tábla törlés",
+                "Videos tábla kilistázása",
+                "Videos tábla hozzáfűzés",
+                "Videos tábla módosítás",
+                "Videos tábla törlés",
                 "Creators tábla kilistázása",
-                "Creators tábla módosítása",
                 "Creators tábla hozzáfűzés",
                 "Creators tábla módosítás",
+                "Creators tábla törlés",
                 "Uploads tábla kilistázása",
-                "Uploads tábla módosítása",
                 "Uploads tábla hozzáfűzés",
                 "Uploads tábla módosítás",
+                "Uploads tábla törlés",
                 "Program bezárása"
-            };
+             };
+        }
 
-            Console.CursorVisible = false;
+        /// <summary>
+        /// Gets menu option.
+        /// </summary>
+        public List<string> MenuItems { get; }
+
+        /// <summary>
+        /// Gets the selected menu option.
+        /// </summary>
+        public int SelectedMenuItemIndex { get; private set; }
+
+        private int Index { get; set; }
+
+        public void PrintMenu()
+        {
+            this.SelectedMenuItemIndex = -1;
+
             while (this.SelectedMenuItemIndex == -1)
             {
-                this.SelectedMenuItemIndex = this.GetSelectedIndex(this.MenuItems);
+                this.GetSelectedIndex(this.MenuItems);
             }
         }
 
-        private int GetSelectedIndex(List<string> items)
+        private void GetSelectedIndex(List<string> items)
         {
             this.DrawMenu(items);
 
@@ -85,17 +89,22 @@ namespace VideoSharing.Program
             else if (ckey.Key == ConsoleKey.Enter)
             {
                 Console.Clear();
-                return this.Index;
+                this.SelectedMenuItemIndex = this.Index;
+            }
+            else
+            {
+                this.SelectedMenuItemIndex = -1;
             }
 
             Console.Clear();
-            return -1;
         }
 
         private void DrawMenu(List<string> items)
         {
+            Console.Clear();
             Console.WriteLine("Válassz az alábbi lehetőségek közül:");
 
+            Console.CursorVisible = false;
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == this.Index)
@@ -112,6 +121,7 @@ namespace VideoSharing.Program
 
                 Console.ResetColor();
             }
+            Console.CursorVisible = true;
         }
     }
 }
