@@ -9,7 +9,6 @@ namespace VideoSharing.Logic
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using VideoSharing.Data;
     using VideoSharing.Repository;
 
     /// <summary>
@@ -17,100 +16,24 @@ namespace VideoSharing.Logic
     /// </summary>
     public interface ILogic
     {
-        /// <summary>
-        /// Get all rows from Uploads table
-        /// </summary>
-        /// <returns>List of all record from Uploads table</returns>
-        IEnumerable<Uploads> UploadsGetAll();
+        void CategoriesDelete(int id);
+        List<string> CategoriesGetAll();
+        void CategoriesInsert(string[] parameters);
+        void CategoriesUpdate(string[] parameters);
 
-        /// <summary>
-        /// Insert a new row to Uploads table.
-        /// </summary>
-        /// <param name="item">This item will be added.</param>
-        void UploadsInsert(Uploads item);
+        void VideosDelete(int id);
+        List<string> VideosGetAll();
+        void VideosInsert(string[] parameters);
+        void VideosUpdate(string[] parameters);
 
-        /// <summary>
-        /// Update the selected row in Uploads table.
-        /// </summary>
-        /// <param name="item">This item will be update.</param>
-        void UploadsUpdate(Uploads item);
+        void CreatorsDelete(int id);
+        List<string> CreatorsGetAll();
+        void CreatorsInsert(string[] parameters);
+        void CreatorsUpdate(string[] parameters);
 
-        /// <summary>
-        /// Delete the selected row in Uploads table.
-        /// </summary>
-        /// <param name="item">This item will be delete.</param>
-        void UploadsDelete(Uploads item);
-
-        /// <summary>
-        /// Get all rows from Videos table
-        /// </summary>
-        /// <returns>List of all record from Videos table</returns>
-        IEnumerable<Videos> VideosGetAll();
-
-        /// <summary>
-        /// Insert a new row to Videos table.
-        /// </summary>
-        /// <param name="item">This item will be added.</param>
-        void VideosInsert(Videos item);
-
-        /// <summary>
-        /// Update the selected row in Videos table.
-        /// </summary>
-        /// <param name="item">This item will be update.</param>
-        void VideosUpdate(Videos item);
-
-        /// <summary>
-        /// Delete the selected row in Videos table.
-        /// </summary>
-        /// <param name="item">This item will be delete.</param>
-        void VideosDelete(Videos item);
-
-        /// <summary>
-        /// Get all rows from Creators table
-        /// </summary>
-        /// <returns>List of all record from Creators table</returns>
-        IEnumerable<Creators> creatorsGetAll();
-
-        /// <summary>
-        /// Insert a new row to Creators table.
-        /// </summary>
-        /// <param name="item">This item will be added.</param>
-        void CreatorsInsert(Creators item);
-
-        /// <summary>
-        /// Update the selected row in Creators table.
-        /// </summary>
-        /// <param name="item">This item will be update.</param>
-        void CreatorsUpdate(Creators item);
-
-        /// <summary>
-        /// Delete the selected row in Creators table.
-        /// </summary>
-        /// <param name="item">This item will be delete.</param>
-        void CreatorsDelete(Creators item);
-
-        /// <summary>
-        /// Get all rows from Categories table
-        /// </summary>
-        /// <returns>List of all record from Categories table</returns>
-        IEnumerable<Categories> CategoriesGetAll();
-
-        /// <summary>
-        /// Insert a new row to Categories table.
-        /// </summary>
-        /// <param name="item">This item will be added.</param>
-        void CategoriesInsert(Categories item);
-
-        /// <summary>
-        /// Update the selected row in Categories table.
-        /// </summary>
-        /// <param name="item">This item will be update.</param>
-        void CategoriesUpdate(Categories item);
-
-        /// <summary>
-        /// Delete the selected row in Categories table.
-        /// </summary>
-        /// <param name="item">This item will be delete.</param>
-        void CategoriesDelete(Categories item);
+        void UploadsDelete(int id);
+        List<string> UploadsGetAll();
+        void UploadsInsert(string[] parameters);
+        void UploadsUpdate(string[] parameters);
     }
 }
