@@ -20,19 +20,19 @@ namespace VideoSharing.Repository
         /// Get all item from table
         /// </summary>
         /// <returns>Return an IQueryable variable what we can use for the query.</returns>
-        IEnumerable<T> GetAll();
+        List<string> GetAll();
 
         /// <summary>
         /// Insert the selected item.
         /// </summary>
-        /// <param name="item">This will be the new item.</param>
-        void Insert(T item);
+        /// <param name="parameters">This will be the new item.</param>
+        void Insert(string[] parameters);
 
         /// <summary>
         /// Update the selected item.
         /// </summary>
-        /// <param name="item">The item, what will Update.</param>
-        void Update(T item);
+        /// <param name="parameters">The item, what will Update.</param>
+        void Update(string[] parameters);
 
         /// <summary>
         /// Delete the selected item.

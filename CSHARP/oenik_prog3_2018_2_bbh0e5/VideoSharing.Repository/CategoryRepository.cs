@@ -13,28 +13,65 @@ namespace VideoSharing.Repository
 
     public class CategoryRepository : IRepository<Categories>
     {
+        private SystemDBEntities entities;
+
         public CategoryRepository()
         {
+            this.entities = new SystemDBEntities();
         }
 
-        public void Delete(Categories item)
+        private Categories MakeObject(string[] parameters)
         {
-            throw new NotImplementedException();
+            return new Categories()
+            {
+                category_id = int.Parse(parameters[0]),
+                category_name = parameters[1],
+                category_adult = int.Parse(parameters[2])
+            };
         }
 
-        public IQueryable<Categories> GetAll()
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Categories item = (from e in this.entities.Categories
+                               where e.category_id == id
+                               select e).FirstOrDefault();
+
+            this.entities.Categories.Remove(item);
+            this.entities.SaveChanges();
         }
 
-        public void Insert(Categories item)
+        public List<string> GetAll()
         {
-            throw new NotImplementedException();
+            var q = from e in this.entities.Categories
+                    select e.category_name;
+
+            List<string> temp = new List<string>();
+
+            foreach (var item in q)
+            {
+                temp.Add(item);
+            }
+
+            return temp;
         }
 
-        public void Modify(Categories item)
+        public void Insert(string[] parameters)
         {
-            throw new NotImplementedException();
+            this.entities.Categories.Add(this.MakeObject(parameters));
+            this.entities.SaveChanges();
+        }
+
+        public void Update(string[] parameters)
+        {
+            Categories update = this.MakeObject(parameters);
+
+            Categories item = (from e in this.entities.Categories
+                               where e.category_id == update.category_id
+                               select e).FirstOrDefault();
+
+            item = update;
+
+            this.entities.SaveChanges();
         }
     }
 }

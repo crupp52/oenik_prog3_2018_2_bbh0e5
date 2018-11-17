@@ -16,7 +16,7 @@ namespace VideoSharing.Repository
     /// </summary>
     public class UploadRepository : IRepository<Uploads>
     {
-        private SystemDBEntities vs;
+        private SystemDBEntities entities;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UploadRepository"/> class.
@@ -24,7 +24,69 @@ namespace VideoSharing.Repository
         /// </summary>
         public UploadRepository()
         {
-            this.vs = new SystemDBEntities();
+            this.entities = new SystemDBEntities();
+        }
+
+        /// <summary>
+        /// Get all rows from Uploads table.
+        /// </summary>
+        /// <returns>IEnumerable collection what containts all rows from Upload table-</returns>
+        public List<string> GetAll()
+        {
+            var q = from e in this.entities.Uploads
+                   select e.upload_id;
+
+            List<string> temp = new List<string>();
+
+            foreach (var item in q)
+            {
+                temp.Add(item.ToString());
+            }
+
+            return temp;
+        }
+
+        /// <summary>
+        /// Create an upload object from string parameters.
+        /// </summary>
+        /// <param name="parameters">Containts the object parameters.</param>
+        /// <returns>Get an Upload object.</returns>
+        public Uploads MakeObject(string[] parameters)
+        {
+            return new Uploads()
+            {
+                upload_id = int.Parse(parameters[0]),
+                upload_date = DateTime.Parse(parameters[1]),
+                video_id = int.Parse(parameters[2]),
+                creator_id = int.Parse(parameters[3])
+            };
+        }
+
+        /// <summary>
+        /// Add a new row to Uploads table.
+        /// </summary>
+        /// <param name="parameters">This is the new item.</param>
+        public void Insert(string[] parameters)
+        {
+            this.entities.Uploads.Add(this.MakeObject(parameters));
+            this.entities.SaveChanges();
+        }
+
+        /// <summary>
+        /// Update a row in Uploads table.
+        /// </summary>
+        /// <param name="parameters">This is the modified row.</param>
+        public void Update(string[] parameters)
+        {
+            Uploads update = this.MakeObject(parameters);
+
+            Uploads item = (from e in this.entities.Uploads
+                           where e.upload_id == update.upload_id
+                           select e).First();
+
+            item = update;
+
+            this.entities.SaveChanges();
         }
 
         /// <summary>
@@ -33,39 +95,12 @@ namespace VideoSharing.Repository
         /// <param name="id">Upload id what will delete.</param>
         public void Delete(int id)
         {
-            Uploads item = (from e in this.vs.Uploads
+            Uploads item = (from e in this.entities.Uploads
                             where e.upload_id == id
                             select e).FirstOrDefault();
 
-            this.vs.Uploads.Remove(item);
-        }
-
-        /// <summary>
-        /// Get all rows from Uploads table.
-        /// </summary>
-        /// <returns>IEnumerable collection what containts all rows from Upload table-</returns>
-        public IEnumerable<Uploads> GetAll()
-        {
-            return from e in this.vs.Uploads
-                   select e;
-        }
-
-        /// <summary>
-        /// Add a new row to Uploads table.
-        /// </summary>
-        /// <param name="item">This is the new item.</param>
-        public void Insert(Uploads item)
-        {
-            this.vs.Uploads.Add(item);
-        }
-
-        /// <summary>
-        /// Update a row in Uploads table.
-        /// </summary>
-        /// <param name="item">This is the modified row.</param>
-        public void Update(Uploads item)
-        {
-            throw new NotImplementedException();
+            this.entities.Uploads.Remove(item);
+            this.entities.SaveChanges();
         }
     }
 }

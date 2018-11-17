@@ -13,24 +13,67 @@ namespace VideoSharing.Repository
 
     public class CreatorRepository : IRepository<Creators>
     {
-        public void Delete(Creators item)
+        private SystemDBEntities entities;
+
+        public CreatorRepository()
         {
-            throw new NotImplementedException();
+            this.entities = new SystemDBEntities();
         }
 
-        public IQueryable<Creators> GetAll()
+        private Creators MakeObject(string[] parameters)
         {
-            throw new NotImplementedException();
+            return new Creators()
+            {
+                creator_id = int.Parse(parameters[0]),
+                creator_name = parameters[1],
+                creator_email = parameters[2],
+                creator_birth_date = DateTime.Parse(parameters[3]),
+                creator_premium = int.Parse(parameters[4])
+            };
         }
 
-        public void Insert(Creators item)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Creators item = (from e in this.entities.Creators
+                             where e.creator_id == id
+                             select e).FirstOrDefault();
+
+            this.entities.Creators.Remove(item);
+            this.entities.SaveChanges();
         }
 
-        public void Modify(Creators item)
+        public List<string> GetAll()
         {
-            throw new NotImplementedException();
+            var q = from e in this.entities.Creators
+                    select e.creator_name;
+
+            List<string> temp = new List<string>();
+
+            foreach (var item in q)
+            {
+                temp.Add(item);
+            }
+
+            return temp;
+        }
+
+        public void Insert(string[] parameters)
+        {
+            this.entities.Creators.Add(MakeObject(parameters));
+            this.entities.SaveChanges();
+        }
+
+        public void Update(string[] parameters)
+        {
+            Creators update = MakeObject(parameters);
+
+            Creators item = (from e in entities.Creators
+                             where e.creator_id == update.creator_id
+                             select e).FirstOrDefault();
+
+            item = update;
+
+            this.entities.SaveChanges();
         }
     }
 }
