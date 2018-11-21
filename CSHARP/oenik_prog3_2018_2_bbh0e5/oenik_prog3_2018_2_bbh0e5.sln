@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Repository", "VideoSharing.Repository\VideoSharing.Repository.csproj", "{2098D839-6206-4BA1-A076-0B9ADC3B9F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Repository.Test", "VideoSharing.Repository.Test\VideoSharing.Repository.Test.csproj", "{8F832D02-1D72-476B-A5B2-CA00B2E98292}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Logic", "VideoSharing.Logic\VideoSharing.Logic.csproj", "{D324571A-420C-4453-826A-3A98955E0DCA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoSharing.Logic.Test", "VideoSharing.Logic.Test\VideoSharing.Logic.Test.csproj", "{3BB5A61A-799D-401E-A2D6-1F3E01C45B04}"
@@ -25,10 +23,6 @@ Global
 		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2098D839-6206-4BA1-A076-0B9ADC3B9F08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F832D02-1D72-476B-A5B2-CA00B2E98292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F832D02-1D72-476B-A5B2-CA00B2E98292}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F832D02-1D72-476B-A5B2-CA00B2E98292}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F832D02-1D72-476B-A5B2-CA00B2E98292}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D324571A-420C-4453-826A-3A98955E0DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D324571A-420C-4453-826A-3A98955E0DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D324571A-420C-4453-826A-3A98955E0DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU

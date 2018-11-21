@@ -12,28 +12,15 @@ namespace VideoSharing.Logic
     using VideoSharing.Repository;
 
     /// <summary>
-    /// Containt all must have datebase queries list.
+    /// asd
     /// </summary>
-    public interface ILogic
+    /// <typeparam name="T">asd1</typeparam>
+    public interface ILogic<T>
     {
-        void CategoriesDelete(int id);
-        List<string> CategoriesGetAll();
-        void CategoriesInsert(string[] parameters);
-        void CategoriesUpdate(string[] parameters);
-
-        void VideosDelete(int id);
-        List<string> VideosGetAll();
-        void VideosInsert(string[] parameters);
-        void VideosUpdate(string[] parameters);
-
-        void CreatorsDelete(int id);
-        List<string> CreatorsGetAll();
-        void CreatorsInsert(string[] parameters);
-        void CreatorsUpdate(string[] parameters);
-
-        void UploadsDelete(int id);
-        List<string> UploadsGetAll();
-        void UploadsInsert(string[] parameters);
-        void UploadsUpdate(string[] parameters);
+        List<string> GetAll();
+        T MakeObject(string[] parameters);
+        void Insert(string[] parameters);
+        void Update(string[] parameters);
+        void Delete(string[] parameters);
     }
 }

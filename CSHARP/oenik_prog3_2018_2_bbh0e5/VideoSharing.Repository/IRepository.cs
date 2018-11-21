@@ -20,24 +20,24 @@ namespace VideoSharing.Repository
         /// Get all item from table
         /// </summary>
         /// <returns>Return an IQueryable variable what we can use for the query.</returns>
-        List<string> GetAll();
+        IQueryable<T> GetAll();
 
         /// <summary>
         /// Insert the selected item.
         /// </summary>
         /// <param name="parameters">This will be the new item.</param>
-        void Insert(string[] parameters);
+        void Insert(T item);
 
         /// <summary>
         /// Update the selected item.
         /// </summary>
         /// <param name="parameters">The item, what will Update.</param>
-        void Update(string[] parameters);
+        void Update(T item);
 
         /// <summary>
         /// Delete the selected item.
         /// </summary>
         /// <param name="id">The item, what will delete.</param>
-        void Delete(int id);
+        void Delete(T item);
     }
 }

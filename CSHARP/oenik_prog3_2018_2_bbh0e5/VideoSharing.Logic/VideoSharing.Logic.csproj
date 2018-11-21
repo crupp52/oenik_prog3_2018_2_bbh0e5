@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriesLogic.cs" />
+    <Compile Include="CreatorsLogic.cs" />
     <Compile Include="ILogic.cs" />
-    <Compile Include="Logic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VideosLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="oenik.ruleset" />
@@ -56,6 +58,10 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VideoSharing.Data\VideoSharing.Data.csproj">
+      <Project>{C87B1CC1-C1AB-4F91-AEE3-D00794B79640}</Project>
+      <Name>VideoSharing.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VideoSharing.Repository\VideoSharing.Repository.csproj">
       <Project>{2098d839-6206-4ba1-a076-0b9adc3b9f08}</Project>
       <Name>VideoSharing.Repository</Name>

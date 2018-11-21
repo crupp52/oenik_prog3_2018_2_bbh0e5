@@ -36,10 +36,6 @@ namespace VideoSharing.Program
                 "Creators tábla hozzáfűzés",
                 "Creators tábla módosítás",
                 "Creators tábla törlés",
-                "Uploads tábla kilistázása",
-                "Uploads tábla hozzáfűzés",
-                "Uploads tábla módosítás",
-                "Uploads tábla törlés",
                 "Program bezárása"
              };
         }

@@ -20,56 +20,34 @@ namespace VideoSharing.Repository
             this.entities = new SystemDBEntities();
         }
 
-        private Categories MakeObject(string[] parameters)
+        public void Delete(Categories item)
         {
-            return new Categories()
-            {
-                category_id = int.Parse(parameters[0]),
-                category_name = parameters[1],
-                category_adult = int.Parse(parameters[2])
-            };
-        }
+            Categories r = (from e in this.entities.Categories
+                          where e.category_id == item.category_id
+                            select e).First();
 
-        public void Delete(int id)
-        {
-            Categories item = (from e in this.entities.Categories
-                               where e.category_id == id
-                               select e).FirstOrDefault();
-
-            this.entities.Categories.Remove(item);
+            this.entities.Categories.Remove(r);
             this.entities.SaveChanges();
         }
 
-        public List<string> GetAll()
+        public IQueryable<Categories> GetAll()
         {
-            var q = from e in this.entities.Categories
-                    select e.category_name;
-
-            List<string> temp = new List<string>();
-
-            foreach (var item in q)
-            {
-                temp.Add(item);
-            }
-
-            return temp;
+            return this.entities.Categories;
         }
 
-        public void Insert(string[] parameters)
+        public void Insert(Categories item)
         {
-            this.entities.Categories.Add(this.MakeObject(parameters));
+            this.entities.Categories.Add(item);
             this.entities.SaveChanges();
         }
 
-        public void Update(string[] parameters)
+        public void Update(Categories item)
         {
-            Categories update = this.MakeObject(parameters);
+            Categories update = (from e in this.entities.Categories
+                               where e.category_id == item.category_id
+                                 select e).First();
 
-            Categories item = (from e in this.entities.Categories
-                               where e.category_id == update.category_id
-                               select e).FirstOrDefault();
-
-            item = update;
+            update = item;
 
             this.entities.SaveChanges();
         }

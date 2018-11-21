@@ -20,58 +20,34 @@ namespace VideoSharing.Repository
             this.entities = new SystemDBEntities();
         }
 
-        private Creators MakeObject(string[] parameters)
+        public void Delete(Creators item)
         {
-            return new Creators()
-            {
-                creator_id = int.Parse(parameters[0]),
-                creator_name = parameters[1],
-                creator_email = parameters[2],
-                creator_birth_date = DateTime.Parse(parameters[3]),
-                creator_premium = int.Parse(parameters[4])
-            };
-        }
+            Creators r = (from e in this.entities.Creators
+                         where e.creator_id == item.creator_id
+                          select e).First();
 
-        public void Delete(int id)
-        {
-            Creators item = (from e in this.entities.Creators
-                             where e.creator_id == id
-                             select e).FirstOrDefault();
-
-            this.entities.Creators.Remove(item);
+            this.entities.Creators.Remove(r);
             this.entities.SaveChanges();
         }
 
-        public List<string> GetAll()
+        public IQueryable<Creators> GetAll()
         {
-            var q = from e in this.entities.Creators
-                    select e.creator_name;
-
-            List<string> temp = new List<string>();
-
-            foreach (var item in q)
-            {
-                temp.Add(item);
-            }
-
-            return temp;
+            return this.entities.Creators;
         }
 
-        public void Insert(string[] parameters)
+        public void Insert(Creators item)
         {
-            this.entities.Creators.Add(MakeObject(parameters));
+            this.entities.Creators.Add(item);
             this.entities.SaveChanges();
         }
 
-        public void Update(string[] parameters)
+        public void Update(Creators item)
         {
-            Creators update = MakeObject(parameters);
+            Creators update = (from e in this.entities.Creators
+                              where e.creator_id == item.creator_id
+                               select e).First();
 
-            Creators item = (from e in entities.Creators
-                             where e.creator_id == update.creator_id
-                             select e).FirstOrDefault();
-
-            item = update;
+            update = item;
 
             this.entities.SaveChanges();
         }

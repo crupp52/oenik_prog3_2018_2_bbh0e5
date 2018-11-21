@@ -16,7 +16,9 @@ namespace VideoSharing.Program
     /// </summary>
     public class Core
     {
-        private Logic logic;
+        private CategoriesLogic categoriesLogic;
+        private VideosLogic videosLogic;
+        private CreatorsLogic creatorsLogic;
 
         private Menu m;
 
@@ -27,7 +29,10 @@ namespace VideoSharing.Program
         public Core()
         {
             this.m = new Menu();
-            this.logic = new Logic();
+
+            this.categoriesLogic = new CategoriesLogic();
+            this.videosLogic = new VideosLogic();
+            this.creatorsLogic = new CreatorsLogic();
 
             while (this.m.SelectedMenuItemIndex != this.m.MenuItems.Count - 1)
             {
@@ -54,54 +59,40 @@ namespace VideoSharing.Program
             switch (select)
             {
                 case 0:
-                    this.WriteOut(this.logic.CategoriesGetAll());
+                    this.WriteOut(this.categoriesLogic.GetAll());
                     break;
                 case 1:
-                    this.logic.CategoriesInsert(Tools.CollectParameters());
-                    this.WriteOut(this.logic.CategoriesGetAll());
+                    this.categoriesLogic.Insert(Tools.CollectParameters());
                     break;
                 case 2:
-                    this.logic.CategoriesUpdate(Tools.CollectParameters());
+                    this.categoriesLogic.Update(Tools.CollectParameters());
                     break;
                 case 3:
-                    this.logic.CategoriesDelete(Tools.CollectId());
+                    this.categoriesLogic.Delete(Tools.CollectParameters());
                     break;
                 case 4:
-                    this.WriteOut(this.logic.VideosGetAll());
+                    this.WriteOut(this.videosLogic.GetAll());
                     break;
                 case 5:
-                    this.logic.VideosInsert(Tools.CollectParameters());
+                    this.videosLogic.Insert(Tools.CollectParameters());
                     break;
                 case 6:
-                    this.logic.VideosUpdate(Tools.CollectParameters());
+                    this.videosLogic.Update(Tools.CollectParameters());
                     break;
                 case 7:
-                    this.logic.VideosDelete(Tools.CollectId());
+                    this.videosLogic.Delete(Tools.CollectParameters());
                     break;
                 case 8:
-                    this.WriteOut(this.logic.CreatorsGetAll());
+                    this.WriteOut(this.creatorsLogic.GetAll());
                     break;
                 case 9:
-                    this.logic.CreatorsInsert(Tools.CollectParameters());
+                    this.creatorsLogic.Insert(Tools.CollectParameters());
                     break;
                 case 10:
-                    this.logic.CreatorsUpdate(Tools.CollectParameters());
+                    this.creatorsLogic.Update(Tools.CollectParameters());
                     break;
                 case 11:
-                    this.logic.CreatorsDelete
-                        (Tools.CollectId());
-                    break;
-                case 12:
-                    this.WriteOut(this.logic.UploadsGetAll());
-                    break;
-                case 13:
-                    this.logic.UploadsInsert(Tools.CollectParameters());
-                    break;
-                case 14:
-                    this.logic.UploadsUpdate(Tools.CollectParameters());
-                    break;
-                case 15:
-                    this.logic.UploadsDelete(Tools.CollectId());
+                    this.creatorsLogic.Delete(Tools.CollectParameters());
                     break;
                 default:
                     break;
