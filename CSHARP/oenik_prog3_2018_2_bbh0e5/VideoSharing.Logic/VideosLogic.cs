@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VideoSharing.Data;
-using VideoSharing.Repository;
-
-namespace VideoSharing.Logic
+﻿namespace VideoSharing.Logic
 {
+    using System.Linq;
+    using VideoSharing.Data;
+    using VideoSharing.Repository;
+
     public class VideosLogic : ILogic<Videos>
     {
         private IRepository<Videos> repository;
@@ -16,24 +11,6 @@ namespace VideoSharing.Logic
         public VideosLogic(IRepository<Videos> repository)
         {
             this.repository = repository;
-        }
-
-        public void Delete(string[] parameters)
-        {
-            this.repository.Delete(MakeObject(parameters));
-        }
-
-        public IQueryable<Videos> GetAll()
-        {
-            var q = from e in this.repository.GetAll()
-                   select e;
-
-            return q;
-        }
-
-        public void Insert(string[] parameters)
-        {
-            this.repository.Insert(MakeObject(parameters));
         }
 
         public Videos MakeObject(string[] parameters)
@@ -48,9 +25,39 @@ namespace VideoSharing.Logic
             };
         }
 
+        public IQueryable<Videos> GetAll()
+        {
+            return from e in this.repository.GetAll()
+                   select e;
+        }
+
+        public IQueryable<Videos> GetElementById(int id)
+        {
+            return from e in this.repository.GetAll()
+                   where e.video_id == id
+                   select e;
+        }
+
+        public IQueryable<Videos> GetElementByName(string name)
+        {
+            return from e in this.repository.GetAll()
+                   where e.video_title.Contains(name)
+                   select e;
+        }
+
+        public void Insert(string[] parameters)
+        {
+            this.repository.Insert(MakeObject(parameters));
+        }
+
         public void Update(string[] parameters)
         {
             this.repository.Update(MakeObject(parameters));
+        }
+
+        public void Delete(string[] parameters)
+        {
+            this.repository.Delete(MakeObject(parameters));
         }
     }
 }

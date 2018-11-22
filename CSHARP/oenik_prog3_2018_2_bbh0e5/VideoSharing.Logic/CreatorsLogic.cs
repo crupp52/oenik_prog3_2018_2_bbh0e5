@@ -1,38 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VideoSharing.Data;
-using VideoSharing.Repository;
-
-namespace VideoSharing.Logic
+﻿namespace VideoSharing.Logic
 {
+    using System;
+    using System.Linq;
+    using VideoSharing.Data;
+    using VideoSharing.Repository;
+
     public class CreatorsLogic : ILogic<Creators>
     {
-        private CreatorRepository repository;
+        private IRepository<Creators> repository;
 
         public CreatorsLogic(IRepository<Creators> repository)
         {
-            this.repository = (CreatorRepository)repository;
-        }
-
-        public void Delete(string[] parameters)
-        {
-            this.repository.Delete(MakeObject(parameters));
-        }
-
-        public IQueryable<Creators> GetAll()
-        {
-            var q = from e in this.repository.GetAll()
-                    select e;
-
-            return q;
-        }
-
-        public void Insert(string[] parameters)
-        {
-            this.repository.Insert(MakeObject(parameters));
+            this.repository = repository;
         }
 
         public Creators MakeObject(string[] parameters)
@@ -47,9 +26,41 @@ namespace VideoSharing.Logic
             };
         }
 
+        public IQueryable<Creators> GetAll()
+        {
+            var q = from e in this.repository.GetAll()
+                    select e;
+
+            return q;
+        }
+
+        public IQueryable<Creators> GetElementById(int id)
+        {
+            return from e in this.repository.GetAll()
+                   where e.creator_id == id
+                   select e;
+        }
+
+        public IQueryable<Creators> GetElementByName(string name)
+        {
+            return from e in this.repository.GetAll()
+                   where e.creator_name.Contains(name)
+                   select e;
+        }
+
+        public void Insert(string[] parameters)
+        {
+            this.repository.Insert(MakeObject(parameters));
+        }
+
         public void Update(string[] parameters)
         {
             this.repository.Update(MakeObject(parameters));
+        }
+
+        public void Delete(string[] parameters)
+        {
+            this.repository.Delete(MakeObject(parameters));
         }
     }
 }

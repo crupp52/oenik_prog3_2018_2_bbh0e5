@@ -32,9 +32,9 @@ namespace VideoSharing.Program
         {
             this.m = new Menu();
 
-            this.categoriesLogic = new CategoriesLogic();
+            this.categoriesLogic = new CategoriesLogic(new CategoryRepository());
             this.videosLogic = new VideosLogic(new VideoRepository());
-            this.creatorsLogic = new CreatorsLogic();
+            this.creatorsLogic = new CreatorsLogic(new CreatorRepository());
 
             while (this.m.SelectedMenuItemIndex != this.m.MenuItems.Count - 1)
             {

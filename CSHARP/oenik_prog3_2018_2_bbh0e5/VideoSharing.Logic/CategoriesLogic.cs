@@ -10,29 +10,11 @@ namespace VideoSharing.Logic
 {
     public class CategoriesLogic : ILogic<Categories>
     {
-        private CategoryRepository repository;
+        private IRepository<Categories> repository;
 
         public CategoriesLogic(IRepository<Categories> repository)
         {
-            this.repository = (CategoryRepository)repository;
-        }
-
-        public void Delete(string[] parameters)
-        {
-            this.repository.Delete(MakeObject(parameters));
-        }
-
-        public IQueryable<Categories> GetAll()
-        {
-            var q = from e in this.repository.GetAll()
-                    select e;
-
-            return q;
-        }
-
-        public void Insert(string[] parameters)
-        {
-            this.repository.Insert(MakeObject(parameters));
+            this.repository = repository;
         }
 
         public Categories MakeObject(string[] parameters)
@@ -45,9 +27,41 @@ namespace VideoSharing.Logic
             };
         }
 
+        public IQueryable<Categories> GetAll()
+        {
+            var q = from e in this.repository.GetAll()
+                    select e;
+
+            return q;
+        }
+
+        public IQueryable<Categories> GetElementById(int id)
+        {
+            return from e in this.repository.GetAll()
+                   where e.category_id == id
+                   select e;
+        }
+
+        public IQueryable<Categories> GetElementByName(string name)
+        {
+            return from e in this.repository.GetAll()
+                   where e.category_name.Contains(name)
+                   select e;
+        }
+
+        public void Insert(string[] parameters)
+        {
+            this.repository.Insert(MakeObject(parameters));
+        }
+
         public void Update(string[] parameters)
         {
             this.repository.Update(MakeObject(parameters));
+        }
+
+        public void Delete(string[] parameters)
+        {
+            this.repository.Delete(MakeObject(parameters));
         }
     }
 }
