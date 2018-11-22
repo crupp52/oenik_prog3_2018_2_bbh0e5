@@ -6,43 +6,47 @@ namespace VideoSharing.Logic.Test
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
     using Moq;
-    using VideoSharing.Repository;
-    using VideoSharing.Data;
     using NUnit.Framework;
+    using VideoSharing.Data;
+    using VideoSharing.Repository;
 
+    [TestFixture]
     class LogicVideosTests
     {
-        Logic logic;
         Mock<IRepository<Videos>> mock;
+        VideosLogic logic;
 
-        public LogicVideosTests()
+        [SetUp]
+        public void Setup()
         {
-            this.logic = new Logic();
             this.mock = new Mock<IRepository<Videos>>();
-
-            VideoRepository repository = new VideoRepository();
-
             List<Videos> list = new List<Videos>()
             {
-                new Videos() { video_id = 1, video_title = "test1", video_description = "description1", video_views = 500},
-                new Videos() { video_id = 2, video_title = "test2", video_description = "description2", video_views = 54300},
-                new Videos() { video_id = 3, video_title = "test3", video_description = "description3", video_views = 5020},
-                new Videos() { video_id = 4, video_title = "test4", video_description = "description4", video_views = 53100},
+                new Videos() { video_id = 1, video_title = "test_title_01", video_description = "test", video_views = 3413, category_id = 31},
+                new Videos() { video_id = 2, video_title = "test_title_02", video_description = "test", video_views = 542423, category_id = 35},
+                new Videos() { video_id = 3, video_title = "test_title_03", video_description = "test", video_views = 132, category_id = 32},
+                new Videos() { video_id = 4, video_title = "test_title_04", video_description = "test", video_views = 767, category_id = 39}
             };
 
-            this.mock.Setup(x => x.GetAll());
+            this.mock.Setup(x => x.GetAll()).Returns(list.AsQueryable());
+
+            logic = new VideosLogic(mock.Object);
         }
 
         [Test]
-        public void Test()
+        [Sequential]
+        public void Test([Values(31, 35, 39)] int categoryId)
         {
-            var title = this.logic.VideosGetAll();
+            var q = (from e in this.logic.GetAll()
+                    where e.category_id == categoryId
+                    select e).First();
 
-            Assert.That(title.Count(), Is.EqualTo(title.Count()));
+            Assert.That(q.category_id, Is.EqualTo(categoryId));
         }
     }
 }
