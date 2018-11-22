@@ -25,17 +25,17 @@ namespace VideoSharing.Program
             this.MenuItems = new List<string>()
              {
                 "Categories tábla kilistázása",
-                "Categories tábla hozzáfűzés",
-                "Categories tábla módosítás",
-                "Categories tábla törlés",
+                "Categories rekord hozzáfűzés",
+                "Categories rekord módosítás",
+                "Categories rekord törlés",
                 "Videos tábla kilistázása",
-                "Videos tábla hozzáfűzés",
-                "Videos tábla módosítás",
-                "Videos tábla törlés",
+                "Videos rekord hozzáfűzés",
+                "Videos rekord módosítás",
+                "Videos rekord törlés",
                 "Creators tábla kilistázása",
-                "Creators tábla hozzáfűzés",
-                "Creators tábla módosítás",
-                "Creators tábla törlés",
+                "Creators rekord hozzáfűzés",
+                "Creators rekord módosítás",
+                "Creators rekord törlés",
                 "Program bezárása"
              };
         }
@@ -52,6 +52,9 @@ namespace VideoSharing.Program
 
         private int Index { get; set; }
 
+        /// <summary>
+        /// Draw out the all of menu options.
+        /// </summary>
         public void PrintMenu()
         {
             this.SelectedMenuItemIndex = -1;
@@ -86,6 +89,7 @@ namespace VideoSharing.Program
             {
                 Console.Clear();
                 this.SelectedMenuItemIndex = this.Index;
+                Console.CursorVisible = true;
             }
             else
             {
@@ -99,8 +103,8 @@ namespace VideoSharing.Program
         {
             Console.Clear();
             Console.WriteLine("Válassz az alábbi lehetőségek közül:");
-
             Console.CursorVisible = false;
+
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == this.Index)
@@ -117,7 +121,6 @@ namespace VideoSharing.Program
 
                 Console.ResetColor();
             }
-            Console.CursorVisible = true;
         }
     }
 }

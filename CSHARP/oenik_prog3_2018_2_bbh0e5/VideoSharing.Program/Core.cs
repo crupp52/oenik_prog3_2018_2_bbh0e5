@@ -9,7 +9,9 @@ namespace VideoSharing.Program
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using VideoSharing.Data;
     using VideoSharing.Logic;
+    using VideoSharing.Repository;
 
     /// <summary>
     /// This class will call Menu, and Logic functions.
@@ -31,7 +33,7 @@ namespace VideoSharing.Program
             this.m = new Menu();
 
             this.categoriesLogic = new CategoriesLogic();
-            this.videosLogic = new VideosLogic();
+            this.videosLogic = new VideosLogic(new VideoRepository());
             this.creatorsLogic = new CreatorsLogic();
 
             while (this.m.SelectedMenuItemIndex != this.m.MenuItems.Count - 1)
@@ -46,11 +48,27 @@ namespace VideoSharing.Program
             }
         }
 
-        private void WriteOut(List<string> list)
+        private void WriteOutVideos(IQueryable<Videos> list)
         {
-            foreach (var item in list)
+            foreach (Videos item in list)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("{0}   {1}   {2}   {3}   {4}", item.video_id, item.video_title, item.video_description, item.video_views, item.category_id);
+            }
+        }
+
+        private void WriteOutCategories(IQueryable<Categories> list)
+        {
+            foreach (Categories item in list)
+            {
+                Console.WriteLine("{0}   {1}   {2}", item.category_id, item.category_name, item.category_adult);
+            }
+        }
+
+        private void WriteOutCreators(IQueryable<Creators> list)
+        {
+            foreach (Creators item in list)
+            {
+                Console.WriteLine("{0}   {1}   {2}   {3}   {4}", item.creator_id, item.creator_name, item.creator_email, item.creator_birth_date, item.creator_premium);
             }
         }
 
@@ -59,7 +77,7 @@ namespace VideoSharing.Program
             switch (select)
             {
                 case 0:
-                    this.WriteOut(this.categoriesLogic.GetAll());
+                    this.WriteOutCategories(this.categoriesLogic.GetAll());
                     break;
                 case 1:
                     this.categoriesLogic.Insert(Tools.CollectParameters());
@@ -71,7 +89,7 @@ namespace VideoSharing.Program
                     this.categoriesLogic.Delete(Tools.CollectParameters());
                     break;
                 case 4:
-                    this.WriteOut(this.videosLogic.GetAll());
+                    this.WriteOutVideos(this.videosLogic.GetAll());
                     break;
                 case 5:
                     this.videosLogic.Insert(Tools.CollectParameters());
@@ -83,7 +101,7 @@ namespace VideoSharing.Program
                     this.videosLogic.Delete(Tools.CollectParameters());
                     break;
                 case 8:
-                    this.WriteOut(this.creatorsLogic.GetAll());
+                    this.WriteOutCreators(this.creatorsLogic.GetAll());
                     break;
                 case 9:
                     this.creatorsLogic.Insert(Tools.CollectParameters());

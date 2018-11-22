@@ -95,9 +95,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VideoSharing.Data\VideoSharing.Data.csproj">
+      <Project>{C87B1CC1-C1AB-4F91-AEE3-D00794B79640}</Project>
+      <Name>VideoSharing.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VideoSharing.Logic\VideoSharing.Logic.csproj">
       <Project>{d324571a-420c-4453-826a-3a98955e0dca}</Project>
       <Name>VideoSharing.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoSharing.Repository\VideoSharing.Repository.csproj">
+      <Project>{2098D839-6206-4BA1-A076-0B9ADC3B9F08}</Project>
+      <Name>VideoSharing.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
