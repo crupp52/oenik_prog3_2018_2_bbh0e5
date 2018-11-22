@@ -35,18 +35,49 @@ namespace VideoSharing.Logic.Test
 
             this.mock.Setup(x => x.GetAll()).Returns(list.AsQueryable());
 
-            logic = new VideosLogic(mock.Object);
+            this.logic = new VideosLogic(this.mock.Object);
+        }
+
+        [Test]
+        public void EmptyRepository()
+        {
+            Mock<IRepository<Videos>> empty = new Mock<IRepository<Videos>>();
+            empty.Setup(x => x.GetAll()).Returns(new List<Videos>().AsQueryable());
+
+            VideosLogic l = new VideosLogic(empty.Object);
+
+            Assert.That(l.GetAll().Count(), Is.Zero);
+        }
+
+        [Test]
+        public void GetElementByName_ContaintTestString()
+        {
+            var q = this.logic.GetElementByName("test");
+
+            foreach (var item in q)
+            {
+                Assert.That(item.video_title.Contains("test"));
+            }
+        }
+
+        [Test]
+        public void AllViewsMoreThanZero()
+        {
+            var q = this.logic.GetAll();
+
+            foreach (var item in q)
+            {
+                Assert.That(item.video_views, Is.GreaterThan(0));
+            }
         }
 
         [Test]
         [Sequential]
-        public void Test([Values(31, 35, 39)] int categoryId)
+        public void GetElementByIdAndItIsExists([Values(1, 2, 3, 4)]int id)
         {
-            var q = (from e in this.logic.GetAll()
-                    where e.category_id == categoryId
-                    select e).First();
+            var q = this.logic.GetElementById(id).First();
 
-            Assert.That(q.category_id, Is.EqualTo(categoryId));
+            Assert.That(q, Is.Not.Null);
         }
     }
 }

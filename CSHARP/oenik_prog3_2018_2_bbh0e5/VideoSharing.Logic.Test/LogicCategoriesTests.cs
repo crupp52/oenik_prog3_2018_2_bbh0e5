@@ -33,5 +33,37 @@
 
             this.logic = new CategoriesLogic(this.mock.Object);
         }
+
+        [Test]
+        public void EmptyRepository()
+        {
+            Mock<IRepository<Categories>> empty = new Mock<IRepository<Categories>>();
+            empty.Setup(x => x.GetAll()).Returns(new List<Categories>().AsQueryable());
+
+            CategoriesLogic l = new CategoriesLogic(empty.Object);
+
+            Assert.That(l.GetAll().Count(), Is.Zero);
+        }
+
+        [Test]
+        [Sequential]
+        public void GetElementByName_ContaintTestString([Values("FILM AND ANIMATION", "GAMING", "GAMING", "THRILLER")] string name)
+        {
+            var q = this.logic.GetElementByName(name);
+
+            foreach (var item in q)
+            {
+                Assert.That(item.category_name.Contains(name));
+            }
+        }
+
+        [Test]
+        [Sequential]
+        public void GetElementByIdAndItIsExists([Values(31, 32, 34, 36)] int id)
+        {
+            var q = this.logic.GetElementById(id).First();
+
+            Assert.That(q, Is.Not.Null);
+        }
     }
 }
