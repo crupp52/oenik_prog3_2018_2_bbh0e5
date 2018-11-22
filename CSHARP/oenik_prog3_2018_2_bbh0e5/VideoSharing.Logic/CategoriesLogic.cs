@@ -12,9 +12,9 @@ namespace VideoSharing.Logic
     {
         private CategoryRepository repository;
 
-        public CategoriesLogic()
+        public CategoriesLogic(IRepository<Categories> repository)
         {
-            this.repository = new CategoryRepository();
+            this.repository = (CategoryRepository)repository;
         }
 
         public void Delete(string[] parameters)
@@ -22,19 +22,12 @@ namespace VideoSharing.Logic
             this.repository.Delete(MakeObject(parameters));
         }
 
-        public List<string> GetAll()
+        public IQueryable<Categories> GetAll()
         {
             var q = from e in this.repository.GetAll()
                     select e;
 
-            List<string> result = new List<string>();
-
-            foreach (var item in q)
-            {
-                result.Add(item.category_name);
-            }
-
-            return result;
+            return q;
         }
 
         public void Insert(string[] parameters)

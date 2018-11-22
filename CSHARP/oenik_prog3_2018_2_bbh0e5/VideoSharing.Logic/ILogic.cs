@@ -17,7 +17,7 @@ namespace VideoSharing.Logic
     /// <typeparam name="T">asd1</typeparam>
     public interface ILogic<T>
     {
-        List<string> GetAll();
+        IQueryable<T> GetAll();
         T MakeObject(string[] parameters);
         void Insert(string[] parameters);
         void Update(string[] parameters);

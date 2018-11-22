@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,11 @@ namespace VideoSharing.Logic
 {
     public class VideosLogic : ILogic<Videos>
     {
-        private VideoRepository repository;
+        private IRepository<Videos> repository;
 
-        public VideosLogic()
+        public VideosLogic(IRepository<Videos> repository)
         {
-            this.repository = new VideoRepository();
+            this.repository = repository;
         }
 
         public void Delete(string[] parameters)
@@ -22,19 +23,12 @@ namespace VideoSharing.Logic
             this.repository.Delete(MakeObject(parameters));
         }
 
-        public List<string> GetAll()
+        public IQueryable<Videos> GetAll()
         {
             var q = from e in this.repository.GetAll()
                    select e;
 
-            List<string> result = new List<string>();
-
-            foreach (var item in q)
-            {
-                result.Add(item.video_title);
-            }
-
-            return result;
+            return q;
         }
 
         public void Insert(string[] parameters)
@@ -56,7 +50,7 @@ namespace VideoSharing.Logic
 
         public void Update(string[] parameters)
         {
-            this.repository.Update(this.MakeObject(parameters));
+            this.repository.Update(MakeObject(parameters));
         }
     }
 }

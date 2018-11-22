@@ -12,9 +12,9 @@ namespace VideoSharing.Logic
     {
         private CreatorRepository repository;
 
-        public CreatorsLogic()
+        public CreatorsLogic(IRepository<Creators> repository)
         {
-            this.repository = new CreatorRepository();
+            this.repository = (CreatorRepository)repository;
         }
 
         public void Delete(string[] parameters)
@@ -22,19 +22,12 @@ namespace VideoSharing.Logic
             this.repository.Delete(MakeObject(parameters));
         }
 
-        public List<string> GetAll()
+        public IQueryable<Creators> GetAll()
         {
             var q = from e in this.repository.GetAll()
                     select e;
 
-            List<string> result = new List<string>();
-
-            foreach (var item in q)
-            {
-                result.Add(item.creator_name);
-            }
-
-            return result;
+            return q;
         }
 
         public void Insert(string[] parameters)
