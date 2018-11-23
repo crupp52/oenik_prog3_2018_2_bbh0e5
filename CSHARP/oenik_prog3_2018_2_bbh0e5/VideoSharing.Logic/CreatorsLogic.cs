@@ -1,31 +1,42 @@
-﻿namespace VideoSharing.Logic
+﻿// <copyright file="CreatorsLogic.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace VideoSharing.Logic
 {
     using System;
     using System.Linq;
     using VideoSharing.Data;
     using VideoSharing.Repository;
 
+    /// <summary>
+    /// Handles repository queries and forward requests.
+    /// </summary>
     public class CreatorsLogic : ILogic<Creators>
     {
         private IRepository<Creators> repository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreatorsLogic"/> class.
+        /// </summary>
+        /// <param name="repository">External repository for test.</param>
         public CreatorsLogic(IRepository<Creators> repository)
         {
             this.repository = repository;
         }
 
-        public Creators MakeObject(string[] parameters)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreatorsLogic"/> class.
+        /// </summary>
+        public CreatorsLogic()
         {
-            return new Creators()
-            {
-                creator_id = int.Parse(parameters[0]),
-                creator_name = parameters[1],
-                creator_email = parameters[2],
-                creator_birth_date = DateTime.Parse(parameters[3]),
-                creator_premium = int.Parse(parameters[4])
-            };
+            this.repository = new CreatorRepository();
         }
 
+        /// <summary>
+        /// Returns the contents of the list.
+        /// </summary>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Creators> GetAll()
         {
             var q = from e in this.repository.GetAll()
@@ -34,6 +45,11 @@
             return q;
         }
 
+        /// <summary>
+        /// Returns the contents of the list where the element id is equals with parameter id.
+        /// </summary>
+        /// <param name="id">Integer ID parameter.</param>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Creators> GetElementById(int id)
         {
             return from e in this.repository.GetAll()
@@ -41,6 +57,11 @@
                    select e;
         }
 
+        /// <summary>
+        /// Returns the contents of the list where the element name is equals with parameter name.
+        /// </summary>
+        /// <param name="name">String name parameter.</param>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Creators> GetElementByName(string name)
         {
             return from e in this.repository.GetAll()
@@ -48,19 +69,31 @@
                    select e;
         }
 
-        public void Insert(string[] parameters)
+        /// <summary>
+        /// Add a new element to Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Insert(Creators item)
         {
-            this.repository.Insert(MakeObject(parameters));
+            this.repository.Insert(item);
         }
 
-        public void Update(string[] parameters)
+        /// <summary>
+        /// Update an exsisting element from the Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Update(Creators item)
         {
-            this.repository.Update(MakeObject(parameters));
+            this.repository.Update(item);
         }
 
-        public void Delete(string[] parameters)
+        /// <summary>
+        /// Delete an exsisting element from the Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Delete(Creators item)
         {
-            this.repository.Delete(MakeObject(parameters));
+            this.repository.Delete(item);
         }
     }
 }

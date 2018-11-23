@@ -19,7 +19,6 @@ namespace VideoSharing.Data
         {
             this.Videos = new HashSet<Videos>();
         }
-    
         public decimal category_id { get; set; }
         public string category_name { get; set; }
         public Nullable<decimal> category_adult { get; set; }

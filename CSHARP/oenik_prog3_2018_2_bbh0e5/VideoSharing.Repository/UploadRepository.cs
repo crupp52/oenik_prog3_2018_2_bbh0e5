@@ -12,17 +12,24 @@ namespace VideoSharing.Repository
     using VideoSharing.Data;
 
     /// <summary>
-    /// Upload table CRUD commands.
+    /// Includes Creator Entity calls.
     /// </summary>
     public class UploadRepository : IRepository<Uploads>
     {
         private SystemDBEntities entities;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UploadRepository"/> class.
+        /// </summary>
         public UploadRepository()
         {
             this.entities = new SystemDBEntities();
         }
 
+        /// <summary>
+        /// Delete an exsisting item from Uploads Entity.
+        /// </summary>
+        /// <param name="item">An instance.</param>
         public void Delete(Uploads item)
         {
             Uploads r = (from e in this.entities.Uploads
@@ -33,17 +40,29 @@ namespace VideoSharing.Repository
             this.entities.SaveChanges();
         }
 
+        /// <summary>
+        /// Returns all items from the table.
+        /// </summary>
+        /// <returns>List of elements.</returns>
         public IQueryable<Uploads> GetAll()
         {
             return this.entities.Uploads;
         }
 
+        /// <summary>
+        /// Adds a new item to Uploads Entity.
+        /// </summary>
+        /// <param name="item">An Instance.</param>
         public void Insert(Uploads item)
         {
             this.entities.Uploads.Add(item);
             this.entities.SaveChanges();
         }
 
+        /// <summary>
+        /// Updates an exsisting item from Uploads Entity.
+        /// </summary>
+        /// <param name="item">An Instance.</param>
         public void Update(Uploads item)
         {
             Uploads update = (from e in this.entities.Uploads

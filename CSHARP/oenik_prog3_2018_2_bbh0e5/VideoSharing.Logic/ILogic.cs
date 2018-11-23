@@ -17,10 +17,28 @@ namespace VideoSharing.Logic
     /// <typeparam name="T">asd1</typeparam>
     public interface ILogic<T>
     {
+        /// <summary>
+        /// Returns the contents of the list.
+        /// </summary>
+        /// <returns>List of the elements.</returns>
         IQueryable<T> GetAll();
-        T MakeObject(string[] parameters);
-        void Insert(string[] parameters);
-        void Update(string[] parameters);
-        void Delete(string[] parameters);
+
+        /// <summary>
+        /// Add a new element to Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        void Insert(T item);
+
+        /// <summary>
+        /// Update an exsisting element from the Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        void Update(T item);
+
+        /// <summary>
+        /// Delete an exsisting element from the Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        void Delete(T item);
     }
 }

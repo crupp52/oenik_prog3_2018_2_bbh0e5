@@ -1,20 +1,29 @@
-﻿using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VideoSharing.Data;
-using VideoSharing.Repository;
+﻿// <copyright file="LogicCreatorsTests.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace VideoSharing.Logic.Test
 {
-    class LogicCreatorsTests
-    {
-        Mock<IRepository<Creators>> mock;
-        CreatorsLogic logic;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Moq;
+    using NUnit.Framework;
+    using VideoSharing.Data;
+    using VideoSharing.Repository;
 
+    /// <summary>
+    /// CreatorsLogic test methods.
+    /// </summary>
+    [TestFixture]
+    public class LogicCreatorsTests
+    {
+        private Mock<IRepository<Creators>> mock;
+        private CreatorsLogic logic;
+
+        /// <summary>
+        /// Creates the mocked repository, and fills it up.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -34,6 +43,9 @@ namespace VideoSharing.Logic.Test
             this.logic = new CreatorsLogic(this.mock.Object);
         }
 
+        /// <summary>
+        /// Create a new mocked repository and checks to be empty.
+        /// </summary>
         [Test]
         public void EmptyRepository()
         {
@@ -45,6 +57,10 @@ namespace VideoSharing.Logic.Test
             Assert.That(l.GetAll().Count(), Is.Zero);
         }
 
+        /// <summary>
+        /// Query by name, and contains what we search.
+        /// </summary>
+        /// <param name="name">String name parameter</param>
         [Test]
         [Sequential]
         public void GetElementByName_ContaintTestString([Values("AVA JACKSON", "LAURIE GEORGE", "SOFIA BISHOP")] string name)
@@ -57,6 +73,10 @@ namespace VideoSharing.Logic.Test
             }
         }
 
+        /// <summary>
+        /// Query by id, and contains what we search.
+        /// </summary>
+        /// <param name="id">Integer ID parameter.</param>
         [Test]
         [Sequential]
         public void GetElementByIdAndItIsExists([Values(1, 4, 13, 15)] int id)

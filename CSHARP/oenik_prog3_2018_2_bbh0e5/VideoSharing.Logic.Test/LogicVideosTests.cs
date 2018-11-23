@@ -4,33 +4,35 @@
 
 namespace VideoSharing.Logic.Test
 {
-    using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Moq;
     using NUnit.Framework;
     using VideoSharing.Data;
     using VideoSharing.Repository;
 
+    /// <summary>
+    /// VideosLogic test methods.
+    /// </summary>
     [TestFixture]
-    class LogicVideosTests
+    public class LogicVideosTests
     {
-        Mock<IRepository<Videos>> mock;
-        VideosLogic logic;
+        private Mock<IRepository<Videos>> mock;
+        private VideosLogic logic;
 
+        /// <summary>
+        /// Creates the mocked repository, and fills it up.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
             this.mock = new Mock<IRepository<Videos>>();
             List<Videos> list = new List<Videos>()
             {
-                new Videos() { video_id = 1, video_title = "test_title_01", video_description = "test", video_views = 3413, category_id = 31},
-                new Videos() { video_id = 2, video_title = "test_title_02", video_description = "test", video_views = 542423, category_id = 35},
-                new Videos() { video_id = 3, video_title = "test_title_03", video_description = "test", video_views = 132, category_id = 32},
-                new Videos() { video_id = 4, video_title = "test_title_04", video_description = "test", video_views = 767, category_id = 39}
+                new Videos() { video_id = 1, video_title = "test_title_01", video_description = "test", video_views = 3413, category_id = 31 },
+                new Videos() { video_id = 2, video_title = "test_title_02", video_description = "test", video_views = 542423, category_id = 35 },
+                new Videos() { video_id = 3, video_title = "test_title_03", video_description = "test", video_views = 132, category_id = 32 },
+                new Videos() { video_id = 4, video_title = "test_title_04", video_description = "test", video_views = 767, category_id = 39 }
             };
 
             this.mock.Setup(x => x.GetAll()).Returns(list.AsQueryable());
@@ -38,6 +40,9 @@ namespace VideoSharing.Logic.Test
             this.logic = new VideosLogic(this.mock.Object);
         }
 
+        /// <summary>
+        /// Create a new mocked repository and checks to be empty.
+        /// </summary>
         [Test]
         public void EmptyRepository()
         {
@@ -49,6 +54,9 @@ namespace VideoSharing.Logic.Test
             Assert.That(l.GetAll().Count(), Is.Zero);
         }
 
+        /// <summary>
+        /// Query by name, and contains what we search.
+        /// </summary>
         [Test]
         public void GetElementByName_ContaintTestString()
         {
@@ -60,6 +68,9 @@ namespace VideoSharing.Logic.Test
             }
         }
 
+        /// <summary>
+        /// Test that the views are bigger than zero.
+        /// </summary>
         [Test]
         public void AllViewsMoreThanZero()
         {
@@ -71,6 +82,10 @@ namespace VideoSharing.Logic.Test
             }
         }
 
+        /// <summary>
+        /// Query by id, and contains what we search.
+        /// </summary>
+        /// <param name="id">Integer ID parameter.</param>
         [Test]
         [Sequential]
         public void GetElementByIdAndItIsExists([Values(1, 2, 3, 4)]int id)

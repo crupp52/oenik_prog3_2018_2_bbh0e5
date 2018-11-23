@@ -1,36 +1,52 @@
-﻿namespace VideoSharing.Logic
+﻿// <copyright file="VideosLogic.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace VideoSharing.Logic
 {
     using System.Linq;
     using VideoSharing.Data;
     using VideoSharing.Repository;
 
+    /// <summary>
+    /// Handles repository queries and forward requests.
+    /// </summary>
     public class VideosLogic : ILogic<Videos>
     {
         private IRepository<Videos> repository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VideosLogic"/> class.
+        /// </summary>
+        /// <param name="repository">External repository for test.</param>
         public VideosLogic(IRepository<Videos> repository)
         {
             this.repository = repository;
         }
 
-        public Videos MakeObject(string[] parameters)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VideosLogic"/> class.
+        /// </summary>
+        public VideosLogic()
         {
-            return new Videos()
-            {
-                video_id = int.Parse(parameters[0]),
-                video_title = parameters[1],
-                video_description = parameters[2],
-                video_views = int.Parse(parameters[3]),
-                category_id = int.Parse(parameters[4])
-            };
+            this.repository = new VideoRepository();
         }
 
+        /// <summary>
+        /// Returns the contents of the list.
+        /// </summary>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Videos> GetAll()
         {
             return from e in this.repository.GetAll()
                    select e;
         }
 
+        /// <summary>
+        /// Returns the contents of the list where the element id is equals with parameter id.
+        /// </summary>
+        /// <param name="id">Integer ID parameter.</param>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Videos> GetElementById(int id)
         {
             return from e in this.repository.GetAll()
@@ -38,6 +54,11 @@
                    select e;
         }
 
+        /// <summary>
+        /// Returns the contents of the list where the element name is equals with parameter name.
+        /// </summary>
+        /// <param name="name">String name parameter.</param>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Videos> GetElementByName(string name)
         {
             return from e in this.repository.GetAll()
@@ -45,19 +66,31 @@
                    select e;
         }
 
-        public void Insert(string[] parameters)
+        /// <summary>
+        /// Add a new element to Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Insert(Videos item)
         {
-            this.repository.Insert(MakeObject(parameters));
+            this.repository.Insert(item);
         }
 
-        public void Update(string[] parameters)
+        /// <summary>
+        /// Update an exsisting element from the Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Update(Videos item)
         {
-            this.repository.Update(MakeObject(parameters));
+            this.repository.Update(item);
         }
 
-        public void Delete(string[] parameters)
+        /// <summary>
+        /// Delete an exsisting element from the Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Delete(Videos item)
         {
-            this.repository.Delete(MakeObject(parameters));
+            this.repository.Delete(item);
         }
     }
 }

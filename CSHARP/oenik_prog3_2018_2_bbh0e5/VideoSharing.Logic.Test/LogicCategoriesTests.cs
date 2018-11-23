@@ -1,27 +1,35 @@
-﻿namespace VideoSharing.Logic.Test
+﻿// <copyright file="LogicCategoriesTests.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace VideoSharing.Logic.Test
 {
-    using Moq;
-    using NUnit.Framework;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Moq;
+    using NUnit.Framework;
     using VideoSharing.Data;
     using VideoSharing.Repository;
 
-    class LogicCategoriesTests
+    /// <summary>
+    /// CategoriesLogic test methods.
+    /// </summary>
+    [TestFixture]
+    public class LogicCategoriesTests
     {
-        Mock<IRepository<Categories>> mock;
-        CategoriesLogic logic;
+        private Mock<IRepository<Categories>> mock;
+        private CategoriesLogic logic;
 
+        /// <summary>
+        /// Creates the mocked repository, and fills it up.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
             this.mock = new Mock<IRepository<Categories>>();
             List<Categories> list = new List<Categories>()
             {
-                new Categories() { category_id = 31, category_name = "FILM AND ANIMATION",category_adult = 0},
+                new Categories() { category_id = 31, category_name = "FILM AND ANIMATION", category_adult = 0 },
                 new Categories() { category_id = 32, category_name = "COMEDY", category_adult = 0 },
                 new Categories() { category_id = 33, category_name = "EDUCATION", category_adult = 0 },
                 new Categories() { category_id = 34, category_name = "ENTERTAINMENT", category_adult = 0 },
@@ -34,6 +42,9 @@
             this.logic = new CategoriesLogic(this.mock.Object);
         }
 
+        /// <summary>
+        /// Create a new mocked repository and checks to be empty.
+        /// </summary>
         [Test]
         public void EmptyRepository()
         {
@@ -45,6 +56,10 @@
             Assert.That(l.GetAll().Count(), Is.Zero);
         }
 
+        /// <summary>
+        /// Query by name, and contains what we search.
+        /// </summary>
+        /// <param name="name">String name parameter</param>
         [Test]
         [Sequential]
         public void GetElementByName_ContaintTestString([Values("FILM AND ANIMATION", "GAMING", "GAMING", "THRILLER")] string name)
@@ -57,6 +72,10 @@
             }
         }
 
+        /// <summary>
+        /// Query by id, and contains what we search.
+        /// </summary>
+        /// <param name="id">Integer ID parameter.</param>
         [Test]
         [Sequential]
         public void GetElementByIdAndItIsExists([Values(31, 32, 34, 36)] int id)

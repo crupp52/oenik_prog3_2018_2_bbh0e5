@@ -4,11 +4,7 @@
 
 namespace VideoSharing.Repository
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Repository schema, what must be declarate.
@@ -23,21 +19,21 @@ namespace VideoSharing.Repository
         IQueryable<T> GetAll();
 
         /// <summary>
-        /// Insert the selected item.
+        /// Add an new item, to T Entity.
         /// </summary>
-        /// <param name="parameters">This will be the new item.</param>
+        /// <param name="item">T type will be Videos, Categories or Creators object</param>
         void Insert(T item);
 
         /// <summary>
-        /// Update the selected item.
+        /// Update an exsisting item from T Entity.
         /// </summary>
-        /// <param name="parameters">The item, what will Update.</param>
+        /// <param name="item">T type will be Videos, Categories or Creators object</param>
         void Update(T item);
 
         /// <summary>
-        /// Delete the selected item.
+        /// Delete an exsisting item from T Entity.
         /// </summary>
-        /// <param name="id">The item, what will delete.</param>
+        /// <param name="item">T type will be Videos, Categories or Creators object</param>
         void Delete(T item);
     }
 }

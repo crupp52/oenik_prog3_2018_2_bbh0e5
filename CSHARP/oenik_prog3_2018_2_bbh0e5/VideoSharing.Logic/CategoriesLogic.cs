@@ -1,32 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VideoSharing.Data;
-using VideoSharing.Repository;
+﻿// <copyright file="CategoriesLogic.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace VideoSharing.Logic
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using VideoSharing.Data;
+    using VideoSharing.Repository;
+
+    /// <summary>
+    /// Handles repository queries and forward requests.
+    /// </summary>
     public class CategoriesLogic : ILogic<Categories>
     {
         private IRepository<Categories> repository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CategoriesLogic"/> class.
+        /// </summary>
+        /// <param name="repository">External repository for test.</param>
         public CategoriesLogic(IRepository<Categories> repository)
         {
             this.repository = repository;
         }
 
-        public Categories MakeObject(string[] parameters)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CategoriesLogic"/> class.
+        /// </summary>
+        public CategoriesLogic()
         {
-            return new Categories()
-            {
-                category_id = int.Parse(parameters[0]),
-                category_name = parameters[1],
-                category_adult = int.Parse(parameters[2])
-            };
+            this.repository = new CategoryRepository();
         }
 
+        /// <summary>
+        /// Returns the contents of the list.
+        /// </summary>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Categories> GetAll()
         {
             var q = from e in this.repository.GetAll()
@@ -35,6 +48,11 @@ namespace VideoSharing.Logic
             return q;
         }
 
+        /// <summary>
+        /// Returns the contents of the list where the element id is equals with parameter id.
+        /// </summary>
+        /// <param name="id">Integer ID parameter.</param>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Categories> GetElementById(int id)
         {
             return from e in this.repository.GetAll()
@@ -42,6 +60,11 @@ namespace VideoSharing.Logic
                    select e;
         }
 
+        /// <summary>
+        /// Returns the contents of the list where the element name is equals with parameter name.
+        /// </summary>
+        /// <param name="name">String name parameter.</param>
+        /// <returns>List of the elements.</returns>
         public IQueryable<Categories> GetElementByName(string name)
         {
             return from e in this.repository.GetAll()
@@ -49,19 +72,31 @@ namespace VideoSharing.Logic
                    select e;
         }
 
-        public void Insert(string[] parameters)
+        /// <summary>
+        /// Add a new element to Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Insert(Categories item)
         {
-            this.repository.Insert(MakeObject(parameters));
+            this.repository.Insert(item);
         }
 
-        public void Update(string[] parameters)
+        /// <summary>
+        /// Update an exsisting element from the Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Update(Categories item)
         {
-            this.repository.Update(MakeObject(parameters));
+            this.repository.Update(item);
         }
 
-        public void Delete(string[] parameters)
+        /// <summary>
+        /// Delete an exsisting element from the Entity Model.
+        /// </summary>
+        /// <param name="item">An instance.</param>
+        public void Delete(Categories item)
         {
-            this.repository.Delete(MakeObject(parameters));
+            this.repository.Delete(item);
         }
     }
 }

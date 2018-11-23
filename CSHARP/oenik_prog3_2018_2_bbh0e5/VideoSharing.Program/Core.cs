@@ -21,6 +21,7 @@ namespace VideoSharing.Program
         private CategoriesLogic categoriesLogic;
         private VideosLogic videosLogic;
         private CreatorsLogic creatorsLogic;
+        private WebRequestLogic webLogic;
 
         private Menu m;
 
@@ -35,6 +36,7 @@ namespace VideoSharing.Program
             this.categoriesLogic = new CategoriesLogic(new CategoryRepository());
             this.videosLogic = new VideosLogic(new VideoRepository());
             this.creatorsLogic = new CreatorsLogic(new CreatorRepository());
+            this.webLogic = new WebRequestLogic();
 
             while (this.m.SelectedMenuItemIndex != this.m.MenuItems.Count - 1)
             {
@@ -44,11 +46,12 @@ namespace VideoSharing.Program
 
                 this.CallQruery(this.m.SelectedMenuItemIndex);
 
+                Console.Write("Nyomj meg egy gombot a folytatáshoz...");
                 Console.ReadKey();
             }
         }
 
-        private void WriteOutVideos(IQueryable<Videos> list)
+        private void WriteOutVideos(IQueryable<object> list)
         {
             foreach (Videos item in list)
             {
@@ -72,7 +75,13 @@ namespace VideoSharing.Program
             }
         }
 
-        public void CallQruery(int select)
+        private void WriteOutWebRequest()
+        {
+            this.webLogic.ListenWeb();
+            Console.WriteLine(this.webLogic.ResponseString);
+        }
+
+        private void CallQruery(int select)
         {
             switch (select)
             {
@@ -80,37 +89,40 @@ namespace VideoSharing.Program
                     this.WriteOutCategories(this.categoriesLogic.GetAll());
                     break;
                 case 1:
-                    this.categoriesLogic.Insert(Tools.CollectParameters());
+                    this.categoriesLogic.Insert((Categories)Tools.CollectParameters(Tables.Categories));
                     break;
                 case 2:
-                    this.categoriesLogic.Update(Tools.CollectParameters());
+                    this.categoriesLogic.Update((Categories)Tools.CollectParameters(Tables.Categories));
                     break;
                 case 3:
-                    this.categoriesLogic.Delete(Tools.CollectParameters());
+                    this.categoriesLogic.Delete((Categories)Tools.CollectParameters(Tables.Categories));
                     break;
                 case 4:
                     this.WriteOutVideos(this.videosLogic.GetAll());
                     break;
                 case 5:
-                    this.videosLogic.Insert(Tools.CollectParameters());
+                    this.videosLogic.Insert((Videos)Tools.CollectParameters(Tables.Videos));
                     break;
                 case 6:
-                    this.videosLogic.Update(Tools.CollectParameters());
+                    this.videosLogic.Update((Videos)Tools.CollectParameters(Tables.Videos));
                     break;
                 case 7:
-                    this.videosLogic.Delete(Tools.CollectParameters());
+                    this.videosLogic.Delete((Videos)Tools.CollectParameters(Tables.Videos));
                     break;
                 case 8:
                     this.WriteOutCreators(this.creatorsLogic.GetAll());
                     break;
                 case 9:
-                    this.creatorsLogic.Insert(Tools.CollectParameters());
+                    this.creatorsLogic.Insert((Creators)Tools.CollectParameters(Tables.Creators));
                     break;
                 case 10:
-                    this.creatorsLogic.Update(Tools.CollectParameters());
+                    this.creatorsLogic.Update((Creators)Tools.CollectParameters(Tables.Creators));
                     break;
                 case 11:
-                    this.creatorsLogic.Delete(Tools.CollectParameters());
+                    this.creatorsLogic.Delete((Creators)Tools.CollectParameters(Tables.Creators));
+                    break;
+                case 12:
+                    this.WriteOutWebRequest();
                     break;
                 default:
                     break;
