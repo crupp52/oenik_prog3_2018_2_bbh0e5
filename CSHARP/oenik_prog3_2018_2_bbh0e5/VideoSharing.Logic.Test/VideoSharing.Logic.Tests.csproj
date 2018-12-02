@@ -9,8 +9,8 @@
     <ProjectGuid>{3BB5A61A-799D-401E-A2D6-1F3E01C45B04}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VideoSharing.Logic.Test</RootNamespace>
-    <AssemblyName>VideoSharing.Logic.Test</AssemblyName>
+    <RootNamespace>VideoSharing.Logic.Tests</RootNamespace>
+    <AssemblyName>VideoSharing.Logic.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -25,7 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>oenik.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Debug\VideoSharing.Logic.Test.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\VideoSharing.Logic.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

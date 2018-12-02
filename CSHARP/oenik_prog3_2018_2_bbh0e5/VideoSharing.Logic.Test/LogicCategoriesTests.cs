@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace VideoSharing.Logic.Test
+namespace VideoSharing.Logic.Tests
 {
     using System.Collections.Generic;
     using System.Linq;
