@@ -35,15 +35,16 @@ namespace VideoSharing.Logic
         /// <summary>
         /// Download the date from Java Endpont and calls the SaveToXML method.
         /// </summary>
-        public void ListenWeb()
+        /// <param name="gender">Contains the type of gender.</param>
+        public void ListenWeb(string gender)
         {
             try
             {
-                byte[] temp = this.client.DownloadData("http://localhost:8080/VideoSharing.JavaWeb/XMLSender");
+                byte[] temp = this.client.DownloadData($"http://localhost:8080/VideoSharing.JavaWeb/XMLSender?gender={gender}");
                 this.ResponseString = Encoding.ASCII.GetString(temp);
                 this.SaveToXml();
             }
-            catch (System.Net.WebException e)
+            catch (WebException e)
             {
                 Console.WriteLine("Webes hiba! {0}", e.Message);
             }

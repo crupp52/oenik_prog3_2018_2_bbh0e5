@@ -85,7 +85,19 @@ namespace VideoSharing.Program
 
         private void WriteOutWebRequest()
         {
-            this.webLogic.ListenWeb();
+            Console.WriteLine("Kinek szeretnél nevet generálni?");
+            Console.WriteLine("1: férfi");
+            Console.WriteLine("2: nő");
+            Console.Write("Válasz: ");
+            if (Console.ReadLine() == "1")
+            {
+                this.webLogic.ListenWeb("man");
+            }
+            else
+            {
+                this.webLogic.ListenWeb("woman");
+            }
+
             Console.WriteLine(this.webLogic.ResponseString);
         }
 

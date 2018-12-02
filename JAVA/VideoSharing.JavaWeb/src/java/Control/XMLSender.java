@@ -33,7 +33,6 @@ public class XMLSender extends HttpServlet {
         }
         
         try (PrintWriter out = response.getWriter()) {
-            out.println(g);
             out.println(t.RandomUsernameGenerator(gender));
             out.println(t.RandomUsernameGenerator(gender));
             out.println(t.RandomUsernameGenerator(gender));
