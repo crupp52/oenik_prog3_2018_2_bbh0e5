@@ -1,16 +1,12 @@
 package Control;
 
-
-
-import Model.People;
+import Model.Tools;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 
 public class XMLSender extends HttpServlet {
 
@@ -25,17 +21,25 @@ public class XMLSender extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/xml");
+        response.setContentType("text/html;charset=UTF-8");
         
-        People t = new People();
+        Tools t = new Tools();
         
-        try {
-            JAXBContext ctx = JAXBContext.newInstance(People.class);
-            Marshaller marschaller = ctx.createMarshaller();
-            marschaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marschaller.marshal(t, response.getOutputStream());
-        } catch (JAXBException e) {
-        }     
+        String g = request.getParameter("gender");
+        
+        boolean gender = false;
+        if (g.equals("man")) {
+            gender = true;
+        }
+        
+        try (PrintWriter out = response.getWriter()) {
+            out.println(g);
+            out.println(t.RandomUsernameGenerator(gender));
+            out.println(t.RandomUsernameGenerator(gender));
+            out.println(t.RandomUsernameGenerator(gender));
+            out.println(t.RandomUsernameGenerator(gender));
+            out.println(t.RandomUsernameGenerator(gender));
+        }  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
