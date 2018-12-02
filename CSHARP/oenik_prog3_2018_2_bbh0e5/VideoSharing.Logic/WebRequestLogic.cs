@@ -37,22 +37,30 @@ namespace VideoSharing.Logic
         /// </summary>
         public void ListenWeb()
         {
-            byte[] temp = this.client.DownloadData("http://localhost:8080/VideoSharing.JavaWeb/XMLSender");
-
-            this.ResponseString = Encoding.ASCII.GetString(temp);
-
-            this.SaveToXML();
+            try
+            {
+                byte[] temp = this.client.DownloadData("http://localhost:8080/VideoSharing.JavaWeb/XMLSender");
+                this.ResponseString = Encoding.ASCII.GetString(temp);
+                this.SaveToXml();
+            }
+            catch (System.Net.WebException e)
+            {
+                Console.WriteLine("Webes hiba! {0}", e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Általános hiba! {0}", e.Message);
+            }
         }
 
         /// <summary>
         /// Writes out the contents of the response text to output.xml prints the contents of the box.
         /// </summary>
-        public void SaveToXML()
+        public void SaveToXml()
         {
             using (StreamWriter streamWriter = new StreamWriter("output.xml", false, Encoding.ASCII))
             {
                 streamWriter.WriteLine(this.ResponseString);
-                streamWriter.Close();
             }
         }
     }

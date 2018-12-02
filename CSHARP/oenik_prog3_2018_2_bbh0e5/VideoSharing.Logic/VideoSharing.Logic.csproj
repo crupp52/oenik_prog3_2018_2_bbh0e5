@@ -50,6 +50,7 @@
     <Compile Include="CategoriesLogic.cs" />
     <Compile Include="CreatorsLogic.cs" />
     <Compile Include="ILogic.cs" />
+    <Compile Include="NonCrudLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VideosLogic.cs" />
     <Compile Include="WebRequestLogic.cs" />

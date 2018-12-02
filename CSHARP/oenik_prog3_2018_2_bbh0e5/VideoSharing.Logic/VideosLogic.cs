@@ -4,6 +4,7 @@
 
 namespace VideoSharing.Logic
 {
+    using System;
     using System.Linq;
     using VideoSharing.Data;
     using VideoSharing.Repository;
@@ -72,7 +73,14 @@ namespace VideoSharing.Logic
         /// <param name="item">An instance.</param>
         public void Insert(Videos item)
         {
-            this.repository.Insert(item);
+            try
+            {
+                this.repository.Insert(item);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Nem sikerült a hozzáadás.");
+            }
         }
 
         /// <summary>
@@ -81,7 +89,14 @@ namespace VideoSharing.Logic
         /// <param name="item">An instance.</param>
         public void Update(Videos item)
         {
-            this.repository.Update(item);
+            try
+            {
+                this.repository.Update(item);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Nem sikerült a módosítás.");
+            }
         }
 
         /// <summary>
@@ -90,7 +105,14 @@ namespace VideoSharing.Logic
         /// <param name="item">An instance.</param>
         public void Delete(Videos item)
         {
-            this.repository.Delete(item);
+            try
+            {
+                this.repository.Delete(item);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Nem sikerült a törlés.");
+            }
         }
     }
 }
