@@ -11,19 +11,37 @@ namespace VideoSharing.Data
 {
     using System;
     using System.Collections.Generic;
-    
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public partial class Categories
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public Categories()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             this.Videos = new HashSet<Videos>();
         }
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "id")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "category")]
         public decimal category_id { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "name")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "category")]
         public string category_name { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "category")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "adult")]
         public Nullable<decimal> category_adult { get; set; }
-    
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public virtual ICollection<Videos> Videos { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

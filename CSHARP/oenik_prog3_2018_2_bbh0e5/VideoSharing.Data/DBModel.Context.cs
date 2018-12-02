@@ -12,22 +12,36 @@ namespace VideoSharing.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public partial class SystemDBEntities : DbContext
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public SystemDBEntities()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
             : base("name=SystemDBEntities")
         {
         }
-    
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public virtual DbSet<Categories> Categories { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public virtual DbSet<Creators> Creators { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public virtual DbSet<Uploads> Uploads { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public virtual DbSet<Videos> Videos { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
