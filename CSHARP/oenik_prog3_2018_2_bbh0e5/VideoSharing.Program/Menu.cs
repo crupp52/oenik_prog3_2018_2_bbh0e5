@@ -36,6 +36,9 @@ namespace VideoSharing.Program
                 "Creators rekord hozzáfűzés",
                 "Creators rekord módosítás",
                 "Creators rekord törlés",
+                "Videók és a hozzá tartozó kategóriák listázása",
+                "Videók, feltöltő nevének és nézettség listázása",
+                "Top 5 legnézettebb videó",
                 "Java végpont figyelése",
                 "Program bezárása"
              };

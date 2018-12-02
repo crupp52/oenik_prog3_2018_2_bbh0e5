@@ -7,8 +7,6 @@ namespace VideoSharing.Program
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using VideoSharing.Data;
     using VideoSharing.Logic;
     using VideoSharing.Repository;
@@ -21,6 +19,7 @@ namespace VideoSharing.Program
         private CategoriesLogic categoriesLogic;
         private VideosLogic videosLogic;
         private CreatorsLogic creatorsLogic;
+        private NonCrudLogic nonCrudLogic;
         private WebRequestLogic webLogic;
 
         private Menu m;
@@ -36,6 +35,7 @@ namespace VideoSharing.Program
             this.categoriesLogic = new CategoriesLogic(new CategoryRepository());
             this.videosLogic = new VideosLogic(new VideoRepository());
             this.creatorsLogic = new CreatorsLogic(new CreatorRepository());
+            this.nonCrudLogic = new NonCrudLogic();
             this.webLogic = new WebRequestLogic();
 
             while (this.m.SelectedMenuItemIndex != this.m.MenuItems.Count - 1)
@@ -72,6 +72,14 @@ namespace VideoSharing.Program
             foreach (Creators item in list)
             {
                 Console.WriteLine("{0}   {1}   {2}   {3}   {4}", item.creator_id, item.creator_name, item.creator_email, item.creator_birth_date, item.creator_premium);
+            }
+        }
+
+        private void WriteOutNonCrud(List<string> input)
+        {
+            foreach (var item in input)
+            {
+                Console.WriteLine(item);
             }
         }
 
@@ -122,6 +130,15 @@ namespace VideoSharing.Program
                     this.creatorsLogic.Delete((Creators)Tools.CollectParameters(Tables.Creators));
                     break;
                 case 12:
+                    this.WriteOutNonCrud(this.nonCrudLogic.VideoAndCategory());
+                    break;
+                case 13:
+                    this.WriteOutNonCrud(this.nonCrudLogic.VideoCreatorViews());
+                    break;
+                case 14:
+                    this.WriteOutNonCrud(this.nonCrudLogic.MostViewedVideos());
+                    break;
+                case 15:
                     this.WriteOutWebRequest();
                     break;
                 default:

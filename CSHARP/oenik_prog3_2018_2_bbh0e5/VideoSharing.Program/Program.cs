@@ -18,8 +18,7 @@ namespace VideoSharing.Program
         /// <summary>
         /// The program core, the run starts from this point.
         /// </summary>
-        /// <param name="args">Auto generated argument</param>
-        public static void Main(string[] args)
+        public static void Main()
         {
             Core core = new Core();
         }
