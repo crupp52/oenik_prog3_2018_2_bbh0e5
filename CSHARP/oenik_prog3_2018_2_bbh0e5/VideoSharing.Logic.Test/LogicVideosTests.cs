@@ -41,20 +41,6 @@ namespace VideoSharing.Logic.Tests
         }
 
         /// <summary>
-        /// Create a new mocked repository and checks to be empty.
-        /// </summary>
-        [Test]
-        public void EmptyRepository()
-        {
-            Mock<IRepository<Videos>> empty = new Mock<IRepository<Videos>>();
-            empty.Setup(x => x.GetAll()).Returns(new List<Videos>().AsQueryable());
-
-            VideosLogic l = new VideosLogic(empty.Object);
-
-            Assert.That(l.GetAll().Count(), Is.Zero);
-        }
-
-        /// <summary>
         /// Query by name, and contains what we search.
         /// </summary>
         [Test]

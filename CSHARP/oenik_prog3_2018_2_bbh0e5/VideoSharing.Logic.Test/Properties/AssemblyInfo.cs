@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VideoSharing.Logic.Tests")]
+[assembly: AssemblyTitle("VideoSharing.Logic.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VideoSharing.Logic.Tests")]
+[assembly: AssemblyProduct("VideoSharing.Logic.Test")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3bb5a61a-799d-401e-a2d6-1f3e01c45b04")]
+[assembly: Guid("8b9f0dec-e75e-4788-b192-319b50af2dae")]
 
 // Version information for an assembly consists of the following four values:
 //
