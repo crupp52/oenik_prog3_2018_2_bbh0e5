@@ -85,5 +85,59 @@ namespace VideoSharing.Logic.Tests
 
             Assert.That(q, Is.Not.Null);
         }
+
+        /// <summary>
+        /// Insert test with rigth input parameter.
+        /// </summary>
+        [Test]
+        public void InsertWithRigthParameters()
+        {
+            Assert.That(() => this.logic.Insert(new Creators() { creator_id = 90, creator_name = "t", creator_email = "a@b.c", creator_birth_date = DateTime.Parse("2018-10-01"), creator_premium = 1 }), Throws.Nothing);
+        }
+
+        /// <summary>
+        /// Insert test with bad input parameter.
+        /// </summary>
+        [Test]
+        public void InsertWithBadParameters()
+        {
+            Assert.That(() => this.logic.Insert(new Creators() { creator_name = "t", creator_email = "a@b.c", creator_birth_date = DateTime.Parse("2018-10-01"), creator_premium = int.Parse("test") }), Throws.Exception);
+        }
+
+        /// <summary>
+        /// Update test with rigth input parameter.
+        /// </summary>
+        [Test]
+        public void UpdateWithRigthParameters()
+        {
+            Assert.That(() => this.logic.Update(new Creators() { creator_id = 90, creator_name = "t", creator_email = "a@b.c", creator_birth_date = DateTime.Parse("2018-10-01"), creator_premium = 1 }), Throws.Nothing);
+        }
+
+        /// <summary>
+        /// Update test with bad input parameter.
+        /// </summary>
+        [Test]
+        public void UpdateWithBadParameters()
+        {
+            Assert.That(() => this.logic.Update(new Creators() { creator_id = 90, creator_name = "t", creator_email = "a@b.c", creator_birth_date = DateTime.Parse("2018-10-01"), creator_premium = int.Parse("test") }), Throws.Exception);
+        }
+
+        /// <summary>
+        /// Delete test with rigth input parameter.
+        /// </summary>
+        [Test]
+        public void DeleteWithRigthParameters()
+        {
+            Assert.That(() => this.logic.Delete(new Creators() { creator_id = 90, creator_name = "t", creator_email = "a@b.c", creator_birth_date = DateTime.Parse("2018-10-01"), creator_premium = 1 }), Throws.Nothing);
+        }
+
+        /// <summary>
+        /// Delete test with bad input parameter.
+        /// </summary>
+        [Test]
+        public void DeleteWithBadParameters()
+        {
+            Assert.That(() => this.logic.Delete(new Creators() { creator_id = 90, creator_name = "t", creator_email = "a@b.c", creator_birth_date = DateTime.Parse("2018-10-01"), creator_premium = int.Parse("test") }), Throws.Exception);
+        }
     }
 }

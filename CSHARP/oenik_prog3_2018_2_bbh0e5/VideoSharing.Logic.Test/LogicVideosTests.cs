@@ -41,6 +41,20 @@ namespace VideoSharing.Logic.Tests
         }
 
         /// <summary>
+        /// Create a new mocked repository and checks to be empty.
+        /// </summary>
+        [Test]
+        public void EmptyRepository()
+        {
+            Mock<IRepository<Videos>> empty = new Mock<IRepository<Videos>>();
+            empty.Setup(x => x.GetAll()).Returns(new List<Videos>().AsQueryable());
+
+            VideosLogic l = new VideosLogic(empty.Object);
+
+            Assert.That(l.GetAll().Count(), Is.Zero);
+        }
+
+        /// <summary>
         /// Query by name, and contains what we search.
         /// </summary>
         [Test]
@@ -79,6 +93,60 @@ namespace VideoSharing.Logic.Tests
             var q = this.logic.GetElementById(id).First();
 
             Assert.That(q, Is.Not.Null);
+        }
+
+        /// <summary>
+        /// Insert test with rigth input parameter.
+        /// </summary>
+        [Test]
+        public void InsertWithRigthParameters()
+        {
+            Assert.That(() => this.logic.Insert(new Videos() { video_id = 999, video_title = "test", video_description = "test", video_views = 1000, category_id = 35 }), Throws.Nothing);
+        }
+
+        /// <summary>
+        /// Insert test with bad input parameter.
+        /// </summary>
+        [Test]
+        public void InsertWithBadParameters()
+        {
+            Assert.That(() => this.logic.Insert(new Videos() { video_id = 999, video_title = "test", video_description = "test", video_views = int.Parse("test"), category_id = 35 }), Throws.Exception);
+        }
+
+        /// <summary>
+        /// Update test with rigth input parameter.
+        /// </summary>
+        [Test]
+        public void UpdateWithRigthParameters()
+        {
+            Assert.That(() => this.logic.Update(new Videos() { video_id = 999, video_title = "test", video_description = "test", video_views = 1000, category_id = 35 }), Throws.Nothing);
+        }
+
+        /// <summary>
+        /// Update test with bad input parameter.
+        /// </summary>
+        [Test]
+        public void UpdateWithBadParameters()
+        {
+            Assert.That(() => this.logic.Insert(new Videos() { video_id = 999, video_title = "test", video_description = "test", video_views = int.Parse("test"), category_id = 35 }), Throws.Exception);
+        }
+
+        /// <summary>
+        /// Delete test with rigth input parameter.
+        /// </summary>
+        [Test]
+        public void DeleteWithRigthParameters()
+        {
+            Assert.That(() => this.logic.Update(new Videos() { video_id = 999, video_title = "test", video_description = "test", video_views = 1000, category_id = 35 }), Throws.Nothing);
+        }
+
+        /// <summary>
+        /// Delete test with bad input parameter.
+        /// </summary>
+        [Test]
+        public void DeleteWithBadParameters()
+        {
+            Assert.That(() => this.logic.Insert(new Videos() { video_id = 999, video_title = "test", video_description = "test", video_views = int.Parse("test"), category_id = 35 }), Throws.Exception);
         }
     }
 }
