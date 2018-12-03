@@ -66,6 +66,7 @@
     <Compile Include="LogicCategoriesTests.cs" />
     <Compile Include="LogicCreatorsTests.cs" />
     <Compile Include="LogicVideosTests.cs" />
+    <Compile Include="NonCrudLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -16,8 +16,8 @@ namespace VideoSharing.Logic
     {
         private IRepository<Creators> creatorsRepo;
         private IRepository<Categories> categoriesRepo;
-        private IRepository<Videos> videoRepo;
-        private IRepository<Uploads> uploadRepo;
+        private IRepository<Videos> videosRepo;
+        private IRepository<Uploads> uploadsRepo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NonCrudLogic"/> class.
@@ -27,8 +27,24 @@ namespace VideoSharing.Logic
         {
             this.creatorsRepo = new CreatorRepository();
             this.categoriesRepo = new CategoryRepository();
-            this.videoRepo = new VideoRepository();
-            this.uploadRepo = new UploadRepository();
+            this.videosRepo = new VideoRepository();
+            this.uploadsRepo = new UploadRepository();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NonCrudLogic"/> class.
+        /// Alternative constructor for custom mocked repositories.
+        /// </summary>
+        /// <param name="videoRepo">Usually it will be a mocked VideosRepository repository.</param>
+        /// <param name="categoryRepo">Usually it will be a mocked CategoriesRepository repository.</param>
+        /// <param name="creatorRepo">Usually it will be a mocked CreatorsRepository repository.</param>
+        /// <param name="uploadRepo">Usually it will be a mocked UploadsRepository repository.</param>
+        public NonCrudLogic(IRepository<Videos> videoRepo, IRepository<Categories> categoryRepo, IRepository<Creators> creatorRepo, IRepository<Uploads> uploadRepo)
+        {
+            this.creatorsRepo = creatorRepo;
+            this.categoriesRepo = categoryRepo;
+            this.videosRepo = videoRepo;
+            this.uploadsRepo = uploadRepo;
         }
 
         /// <summary>
@@ -37,7 +53,7 @@ namespace VideoSharing.Logic
         /// <returns>List of video and categories pairs.</returns>
         public List<string> VideoAndCategory()
         {
-            var videos = (from e in this.videoRepo.GetAll()
+            var videos = (from e in this.videosRepo.GetAll()
                                    select e).ToList();
             var categories = (from e in this.categoriesRepo.GetAll()
                                 select e).ToList();
@@ -61,11 +77,11 @@ namespace VideoSharing.Logic
         /// <returns>List of video, creator and view records.</returns>
         public List<string> VideoCreatorViews()
         {
-            var videos = (from e in this.videoRepo.GetAll()
+            var videos = (from e in this.videosRepo.GetAll()
                           select e).ToList();
 
             var q = from e in videos
-                    join f in this.uploadRepo.GetAll() on e.video_id equals f.video_id
+                    join f in this.uploadsRepo.GetAll() on e.video_id equals f.video_id
                     select new { Video = e.video_title, Creator = f.Creators.creator_name, View = e.video_views };
 
             List<string> output = new List<string>();
@@ -84,7 +100,7 @@ namespace VideoSharing.Logic
         /// <returns>Returns the top 5 video titles and number of views.</returns>
         public List<string> MostViewedVideos()
         {
-            var q = (from e in this.videoRepo.GetAll()
+            var q = (from e in this.videosRepo.GetAll()
                      orderby e.video_views descending
                      select new { Title = e.video_title, View = e.video_views }).Take(5);
 
