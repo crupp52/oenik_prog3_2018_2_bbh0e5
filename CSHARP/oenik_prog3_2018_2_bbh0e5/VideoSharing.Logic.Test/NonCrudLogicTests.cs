@@ -37,10 +37,10 @@ namespace VideoSharing.Logic.Test
 
             List<Videos> videos = new List<Videos>()
             {
-                new Videos() { video_id = 1, video_title = "test_title_01", video_description = "test", video_views = 3413, category_id = 31 },
-                new Videos() { video_id = 2, video_title = "test_title_02", video_description = "test", video_views = 542423, category_id = 35 },
-                new Videos() { video_id = 3, video_title = "test_title_03", video_description = "test", video_views = 132, category_id = 32 },
-                new Videos() { video_id = 4, video_title = "test_title_04", video_description = "test", video_views = 767, category_id = 39 }
+                new Videos() { video_id = 1, video_title = "LECSAPOLT ÓCEÁN - 1. RÉSZ", video_description = "NATGEO TV - EREDETI SOROZAT", video_views = 18321, category_id = 33 },
+                new Videos() { video_id = 2, video_title = "LECSAPOLT ÓCEÁN - 3. RÉSZ", video_description = "NATGEO TV - EREDETI SOROZAT", video_views = 41423, category_id = 33 },
+                new Videos() { video_id = 3, video_title = "GET OUT (2017)", video_description = "EGÉSZ ESTÉS HORROR FILM", video_views = 73273, category_id = 38 },
+                new Videos() { video_id = 4, video_title = "KING KONG (1933)", video_description = "KLASSZIKUS HORROR, A LEGJOBBAK KÖZÖTT VAN!", video_views = 547834, category_id = 38 }
             };
 
             List<Creators> creaotrs = new List<Creators>()
@@ -60,13 +60,16 @@ namespace VideoSharing.Logic.Test
                 new Categories() { category_id = 33, category_name = "EDUCATION", category_adult = 0 },
                 new Categories() { category_id = 34, category_name = "ENTERTAINMENT", category_adult = 0 },
                 new Categories() { category_id = 37, category_name = "THRILLER", category_adult = 1 },
+                new Categories() { category_id = 38, category_name = "HORROR", category_adult = 1 },
                 new Categories() { category_id = 36, category_name = "GAMING", category_adult = 0 }
             };
 
             List<Uploads> uploads = new List<Uploads>()
             {
-                new Uploads() { upload_id = 100, upload_date = DateTime.Parse("2018.10.10"), creator_id = 1, video_id = 1 },
-                new Uploads() { upload_id = 101, upload_date = DateTime.Parse("2018.10.20"), creator_id = 4, video_id = 4 }
+                new Uploads() { upload_id = 100, upload_date = DateTime.Parse("2005.10.10"), creator_id = 1, video_id = 1 },
+                new Uploads() { upload_id = 103, upload_date = DateTime.Parse("2007.03.03"), creator_id = 5, video_id = 2 },
+                new Uploads() { upload_id = 110, upload_date = DateTime.Parse("2010.01.10"), creator_id = 13, video_id = 3 },
+                new Uploads() { upload_id = 111, upload_date = DateTime.Parse("2018.10.20"), creator_id = 15, video_id = 4 }
             };
 
             this.mVideo.Setup(x => x.GetAll()).Returns(videos.AsQueryable());
@@ -78,6 +81,99 @@ namespace VideoSharing.Logic.Test
             this.mUploads.Setup(x => x.GetAll()).Returns(uploads.AsQueryable());
 
             this.logic = new NonCrudLogic(this.mVideo.Object, this.mCategory.Object, this.mCreator.Object, this.mUploads.Object);
+        }
+
+        // VideoAndCategory
+
+        /// <summary>
+        /// Inspects the VideoAndCategory query result that is not null.
+        /// </summary>
+        [Test]
+        public void QueryResultIsNotNull_VideoAndCategory()
+        {
+            var q = this.logic.VideoAndCategory();
+
+            Assert.That(q, Is.Not.Null);
+        }
+
+        /// <summary>
+        /// Check the VideoAndCategory query result than contains the input argument.
+        /// </summary>
+        /// <param name="input">Query limitation string.</param>
+        [Test]
+        [TestCase("LECSAPOLT")]
+        [TestCase("GET")]
+        [TestCase("KONG")]
+        public void QeuryResultIsContainsInput_VideoAndCategory(string input)
+        {
+            var result = this.logic.VideoAndCategory().Where(x => x.Contains(input));
+
+            foreach (var item in result)
+            {
+                Assert.That(item.Contains(input));
+            }
+        }
+
+        // VideoCreatorViews
+
+        /// <summary>
+        /// Inspects the VideoCreatorViews query result that is not null.
+        /// </summary>
+        [Test]
+        public void QueryResultIsNotNull_VideoCreatorViews()
+        {
+            var q = this.logic.VideoCreatorViews();
+
+            Assert.That(q, Is.Not.Null);
+        }
+
+        /// <summary>
+        /// Check the VideoCreatorViews query result than contains the input argument.
+        /// </summary>
+        /// <param name="input">Query limitation string.</param>
+        [Test]
+        [TestCase("AVA JACKSON")]
+        [TestCase("OSE CHAPMAN")]
+        [TestCase("SOFIA BISHOP")]
+        public void QeuryResultIsContainsInput_VideoCreatorViews(string input)
+        {
+            var result = this.logic.VideoCreatorViews().Where(x => x.Contains(input));
+
+            foreach (var item in result)
+            {
+                Assert.That(item.Contains(input));
+            }
+        }
+
+        // MostViewedVideo
+
+        /// <summary>
+        /// Inspects the MostViewedVideos query result that is not null.
+        /// </summary>
+        [Test]
+        public void QueryResultIsNotNull_MostViewedVideos()
+        {
+            var q = this.logic.MostViewedVideos();
+
+            Assert.That(q, Is.Not.Null);
+        }
+
+        /// <summary>
+        /// Check the MostViewedVideos query result than contains the input argument.
+        /// </summary>
+        /// <param name="input">Query limitation string.</param>
+        [Test]
+        [TestCase("LECSAPOLT")]
+        [TestCase("GET")]
+        [TestCase("KONG")]
+        public void QeuryResultIsContainsInput_MostViewedVideos(string input)
+        {
+            var result = this.logic.MostViewedVideos().Where(x => x.Contains(input));
+
+            foreach (var item in result)
+            {
+                Assert.That(item.Contains(input));
+            }
         }
     }
 }
