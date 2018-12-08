@@ -65,16 +65,23 @@ namespace VideoSharing.Program
             {
                 string[] parameters = input.Split(' ');
 
-                switch (types)
+                try
                 {
-                    case Tables.Videos:
-                        return new Videos() { video_id = int.Parse(parameters[0]), video_title = parameters[1], video_description = parameters[2], video_views = int.Parse(parameters[3]), category_id = int.Parse(parameters[4]) };
-                    case Tables.Categories:
-                        return new Categories() { category_id = int.Parse(parameters[0]), category_name = parameters[1], category_adult = int.Parse(parameters[2]) };
-                    case Tables.Creators:
-                        return new Creators() { creator_id = int.Parse(parameters[0]), creator_name = parameters[1], creator_email = parameters[2], creator_birth_date = DateTime.Parse(parameters[3]), creator_premium = int.Parse(parameters[4]) };
-                    default:
-                        break;
+                    switch (types)
+                    {
+                        case Tables.Videos:
+                            return new Videos() { video_id = int.Parse(parameters[0]), video_title = parameters[1], video_description = parameters[2], video_views = int.Parse(parameters[3]), category_id = int.Parse(parameters[4]) };
+                        case Tables.Categories:
+                            return new Categories() { category_id = int.Parse(parameters[0]), category_name = parameters[1], category_adult = int.Parse(parameters[2]) };
+                        case Tables.Creators:
+                            return new Creators() { creator_id = int.Parse(parameters[0]), creator_name = parameters[1], creator_email = parameters[2], creator_birth_date = DateTime.Parse(parameters[3]), creator_premium = int.Parse(parameters[4]) };
+                        default:
+                            break;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Hibás a bemenet formátuma! {0}", e.Message);
                 }
             }
 
