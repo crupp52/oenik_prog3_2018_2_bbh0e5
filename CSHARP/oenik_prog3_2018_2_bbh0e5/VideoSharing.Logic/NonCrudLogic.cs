@@ -53,22 +53,9 @@ namespace VideoSharing.Logic
         /// <returns>List of video and categories pairs.</returns>
         public List<string> VideoAndCategory()
         {
-            var videos = (from e in this.videosRepo.GetAll()
-                                   select e).ToList();
-            var categories = (from e in this.categoriesRepo.GetAll()
-                                select e).ToList();
-
-            var q = from e in videos
-                    select new { Video = e.video_title, Category = e.Categories.category_name };
-
-            List<string> output = new List<string>();
-
-            foreach (var item in q)
-            {
-                output.Add($"{item.Video} - {item.Category}");
-            }
-
-            return output;
+            return (from e in this.videosRepo.GetAll().ToList()
+                    join f in this.categoriesRepo.GetAll().ToList() on e.category_id equals f.category_id
+                    select $"{e.video_title} - {f.category_name}").ToList();
         }
 
         /// <summary>
@@ -77,21 +64,10 @@ namespace VideoSharing.Logic
         /// <returns>List of video, creator and view records.</returns>
         public List<string> VideoCreatorViews()
         {
-            var videos = (from e in this.videosRepo.GetAll()
-                          select e).ToList();
-
-            var q = from e in videos
-                    join f in this.uploadsRepo.GetAll() on e.video_id equals f.video_id
-                    select new { Video = e.video_title, Creator = f.Creators.creator_name, View = e.video_views };
-
-            List<string> output = new List<string>();
-
-            foreach (var item in q)
-            {
-                output.Add($"{item.Video} - {item.Creator} - {item.View}");
-            }
-
-            return output;
+            return (from e in this.videosRepo.GetAll().ToList()
+                    join f in this.uploadsRepo.GetAll().ToList() on e.video_id equals f.video_id
+                    join g in this.creatorsRepo.GetAll().ToList() on f.creator_id equals g.creator_id
+                    select $"{e.video_title} - {e.video_views} - {g.creator_name}").ToList();
         }
 
         /// <summary>
