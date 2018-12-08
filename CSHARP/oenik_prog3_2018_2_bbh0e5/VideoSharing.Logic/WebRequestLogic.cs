@@ -33,7 +33,7 @@ namespace VideoSharing.Logic
         public string ResponseString { get; private set; }
 
         /// <summary>
-        /// Download the date from Java Endpont and calls the SaveToXML method.
+        /// Download the date from Java Endpont and calls the SaveToFile method.
         /// </summary>
         /// <param name="gender">Contains the type of gender.</param>
         public void ListenWeb(string gender)
@@ -42,7 +42,7 @@ namespace VideoSharing.Logic
             {
                 byte[] temp = this.client.DownloadData($"http://localhost:8080/VideoSharing.JavaWeb/XMLSender?gender={gender}");
                 this.ResponseString = Encoding.ASCII.GetString(temp);
-                this.SaveToXml();
+                this.SaveToFile();
             }
             catch (WebException e)
             {
@@ -57,9 +57,9 @@ namespace VideoSharing.Logic
         /// <summary>
         /// Writes out the contents of the response text to output.xml prints the contents of the box.
         /// </summary>
-        public void SaveToXml()
+        public void SaveToFile()
         {
-            using (StreamWriter streamWriter = new StreamWriter("output.xml", false, Encoding.ASCII))
+            using (StreamWriter streamWriter = new StreamWriter("output.txt", false, Encoding.ASCII))
             {
                 streamWriter.WriteLine(this.ResponseString);
             }

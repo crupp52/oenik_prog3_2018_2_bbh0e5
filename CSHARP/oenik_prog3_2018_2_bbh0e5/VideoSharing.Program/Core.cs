@@ -98,7 +98,58 @@ namespace VideoSharing.Program
                 this.webLogic.ListenWeb("woman");
             }
 
-            Console.WriteLine(this.webLogic.ResponseString);
+            Console.Clear();
+
+            string[] result = this.webLogic.ResponseString.Split('\n');
+            for (int i = 0; i < result.Length - 1; i++)
+            {
+                Console.WriteLine($"{i + 1}: {result[i]}");
+            }
+
+            Console.WriteLine("Létreszeretnél hozni egy felhasználót? (i/n)");
+            string choice = Console.ReadLine();
+
+            Random rnd = new Random();
+
+            if (choice == "i")
+            {
+                Console.WriteLine("Add meg a választott felhasználónév sorszámát!");
+                Console.Write("Válasz: ");
+
+                int c = -1;
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        c = 1;
+                        break;
+                    case "2":
+                        c = 2;
+                        break;
+                    case "3":
+                        c = 3;
+                        break;
+                    case "4":
+                        c = 4;
+                        break;
+                    case "5":
+                        c = 5;
+                        break;
+                    default:
+                        Console.WriteLine("Rossz input!");
+                        break;
+                }
+
+                try
+                {
+                    string name = result[c - 1].Substring(0, result[c - 1].Length - 1);
+                    this.creatorsLogic.Insert(new Creators() { creator_id = (int)rnd.Next(900, 1000), creator_name = name, creator_email = name + "@example.com", creator_birth_date = DateTime.Now, creator_premium = 0 });
+                    Console.WriteLine("{0} felhasználó létrehozva!", name);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Hiba! {0}", e.Message);
+                }
+            }
         }
 
         private void CallQruery(int select)
