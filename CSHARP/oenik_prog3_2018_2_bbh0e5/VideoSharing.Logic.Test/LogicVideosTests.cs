@@ -29,10 +29,10 @@ namespace VideoSharing.Logic.Tests
             this.mock = new Mock<IRepository<Videos>>();
             List<Videos> list = new List<Videos>()
             {
-                new Videos() { video_id = 1, video_title = "test_title_01", video_description = "test", video_views = 3413, category_id = 31 },
-                new Videos() { video_id = 2, video_title = "test_title_02", video_description = "test", video_views = 542423, category_id = 35 },
-                new Videos() { video_id = 3, video_title = "test_title_03", video_description = "test", video_views = 132, category_id = 32 },
-                new Videos() { video_id = 4, video_title = "test_title_04", video_description = "test", video_views = 767, category_id = 39 }
+                new Videos() { video_id = 1, video_title = "LECSAPOLT ÓCEÁN - 1. RÉSZ", video_description = "NATGEO TV - EREDETI SOROZAT", video_views = 18321, category_id = 33 },
+                new Videos() { video_id = 2, video_title = "LECSAPOLT ÓCEÁN - 3. RÉSZ", video_description = "NATGEO TV - EREDETI SOROZAT", video_views = 41423, category_id = 33 },
+                new Videos() { video_id = 3, video_title = "GET OUT (2017)", video_description = "EGÉSZ ESTÉS HORROR FILM", video_views = 73273, category_id = 38 },
+                new Videos() { video_id = 4, video_title = "KING KONG (1933)", video_description = "KLASSZIKUS HORROR, A LEGJOBBAK KÖZÖTT VAN!", video_views = 547834, category_id = 38 }
             };
 
             this.mock.Setup(x => x.GetAll()).Returns(list.AsQueryable());
@@ -57,8 +57,10 @@ namespace VideoSharing.Logic.Tests
         /// <summary>
         /// Query by name, and contains what we search.
         /// </summary>
+        /// <param name="input">Contains the title list of videos.</param>
         [Test]
-        public void GetElementByName_ContaintTestString()
+        [Sequential]
+        public void GetElementByName_ContaintTestString([Values("LECSAPOLT ÓCEÁN - 1. RÉSZ", "LECSAPOLT ÓCEÁN - 3. RÉSZ", "GET OUT (2017)", "KING KONG (1933)")] string input)
         {
             var q = this.logic.GetElementByName("test");
 
