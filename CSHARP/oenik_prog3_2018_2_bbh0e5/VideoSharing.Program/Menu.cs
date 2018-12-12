@@ -61,6 +61,7 @@ namespace VideoSharing.Program
         /// </summary>
         public void PrintMenu()
         {
+            Console.Clear();
             this.SelectedMenuItemIndex = -1;
 
             while (this.SelectedMenuItemIndex == -1)
@@ -91,7 +92,6 @@ namespace VideoSharing.Program
             }
             else if (ckey.Key == ConsoleKey.Enter)
             {
-                Console.Clear();
                 this.SelectedMenuItemIndex = this.Index;
                 Console.CursorVisible = true;
             }
@@ -105,7 +105,6 @@ namespace VideoSharing.Program
 
         private void DrawMenu(List<string> items)
         {
-            Console.Clear();
             Console.WriteLine("Válassz az alábbi lehetőségek közül:");
             Console.CursorVisible = false;
 
