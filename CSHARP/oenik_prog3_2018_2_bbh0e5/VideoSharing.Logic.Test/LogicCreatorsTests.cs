@@ -87,6 +87,17 @@ namespace VideoSharing.Logic.Tests
         }
 
         /// <summary>
+        /// Testing that logic calls the insert method in Repository.
+        /// </summary>
+        [Test]
+        public void LogicCallsTheRepoInsert()
+        {
+            this.logic.Insert(It.IsAny<Creators>());
+
+            this.mock.Verify(x => x.Insert(It.IsAny<Creators>()), Times.Once);
+        }
+
+        /// <summary>
         /// Insert test with rigth input parameter.
         /// </summary>
         [Test]
@@ -105,6 +116,17 @@ namespace VideoSharing.Logic.Tests
         }
 
         /// <summary>
+        /// Testing that logic calls the Update method in Repository.
+        /// </summary>
+        [Test]
+        public void LogicCallsTheRepoUpdate()
+        {
+            this.logic.Update(It.IsAny<Creators>());
+
+            this.mock.Verify(x => x.Update(It.IsAny<Creators>()), Times.Once);
+        }
+
+        /// <summary>
         /// Update test with rigth input parameter.
         /// </summary>
         [Test]
@@ -120,6 +142,17 @@ namespace VideoSharing.Logic.Tests
         public void UpdateWithBadParameters()
         {
             Assert.That(() => this.logic.Update(new Creators() { creator_id = 90, creator_name = "t", creator_email = "a@b.c", creator_birth_date = DateTime.Parse("2018-10-01"), creator_premium = int.Parse("test") }), Throws.Exception);
+        }
+
+        /// <summary>
+        /// Testing that logic calls the Delete method in Repository.
+        /// </summary>
+        [Test]
+        public void LogicCallsTheRepoDelete()
+        {
+            this.logic.Delete(It.IsAny<Creators>());
+
+            this.mock.Verify(x => x.Delete(It.IsAny<Creators>()), Times.Once);
         }
 
         /// <summary>
