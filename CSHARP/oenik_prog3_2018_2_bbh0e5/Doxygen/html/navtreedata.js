@@ -52,7 +52,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_categories_8cs_source.html",
-"namespacemembers_enum.html"
+"namespace_video_sharing_1_1_logic_1_1_test.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
