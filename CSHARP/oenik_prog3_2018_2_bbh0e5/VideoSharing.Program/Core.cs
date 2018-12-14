@@ -30,7 +30,28 @@ namespace VideoSharing.Program
         /// </summary>
         public Core()
         {
-            this.m = new Menu();
+            List<string> items = new List<string>()
+            {
+                "Categories tábla kilistázása",
+                "Categories rekord hozzáfűzés",
+                "Categories rekord módosítás",
+                "Categories rekord törlés",
+                "Videos tábla kilistázása",
+                "Videos rekord hozzáfűzés",
+                "Videos rekord módosítás",
+                "Videos rekord törlés",
+                "Creators tábla kilistázása",
+                "Creators rekord hozzáfűzés",
+                "Creators rekord módosítás",
+                "Creators rekord törlés",
+                "Videók és a hozzá tartozó kategóriák listázása",
+                "Videók, feltöltő nevének és nézettség listázása",
+                "Top 5 legnézettebb videó",
+                "Java végpont figyelése",
+                "Program bezárása"
+            };
+
+            this.m = new Menu(items);
 
             this.categoriesLogic = new CategoriesLogic(new CategoryRepository());
             this.videosLogic = new VideosLogic(new VideoRepository());
@@ -86,14 +107,30 @@ namespace VideoSharing.Program
         private void WriteOutWebRequest()
         {
             Console.WriteLine("Kinek szeretnél nevet generálni?");
-            Console.WriteLine("1: férfi");
-            Console.WriteLine("2: nő");
-            Console.Write("Válasz: ");
-            if (Console.ReadLine() == "1")
+            //Console.WriteLine("1: férfi");
+            //Console.WriteLine("2: nő");
+            //Console.Write("Válasz: ");
+
+            List<string> genders = new List<string>()
+            {
+                "Férfi",
+                "Nő"
+            };
+
+            Menu jmenu = new Menu(genders);
+            string t = string.Empty;
+
+            while (jmenu.SelectedMenuItemIndex == -1)
+            {
+                jmenu.PrintMenu();
+                t = jmenu.SelectedMenuItemIndex.ToString();
+            }
+
+            if (t == "0")
             {
                 this.webLogic.ListenWeb("man");
             }
-            else
+            else if (t == "1")
             {
                 this.webLogic.ListenWeb("woman");
             }
@@ -106,7 +143,7 @@ namespace VideoSharing.Program
                 Console.WriteLine($"{i + 1}: {result[i]}");
             }
 
-            Console.WriteLine("Létreszeretnél hozni egy felhasználót? (i/n)");
+            Console.Write("Létreszeretnél hozni egy felhasználót? (i/n) Válasz: ");
             string choice = Console.ReadLine();
 
             Random rnd = new Random();

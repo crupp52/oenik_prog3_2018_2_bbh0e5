@@ -18,30 +18,12 @@ namespace VideoSharing.Program
         /// Initializes a new instance of the <see cref="Menu"/> class.
         /// Here set the list of menu items, draw menu and store the selected menu option.
         /// </summary>
-        public Menu()
+        /// <param name="list">List of menu elements.</param>
+        public Menu(List<string> list)
         {
             this.SelectedMenuItemIndex = -1;
 
-            this.MenuItems = new List<string>()
-             {
-                "Categories tábla kilistázása",
-                "Categories rekord hozzáfűzés",
-                "Categories rekord módosítás",
-                "Categories rekord törlés",
-                "Videos tábla kilistázása",
-                "Videos rekord hozzáfűzés",
-                "Videos rekord módosítás",
-                "Videos rekord törlés",
-                "Creators tábla kilistázása",
-                "Creators rekord hozzáfűzés",
-                "Creators rekord módosítás",
-                "Creators rekord törlés",
-                "Videók és a hozzá tartozó kategóriák listázása",
-                "Videók, feltöltő nevének és nézettség listázása",
-                "Top 5 legnézettebb videó",
-                "Java végpont figyelése",
-                "Program bezárása"
-             };
+            this.MenuItems = list;
         }
 
         /// <summary>
