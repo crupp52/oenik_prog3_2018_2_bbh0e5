@@ -107,9 +107,6 @@ namespace VideoSharing.Program
         private void WriteOutWebRequest()
         {
             Console.WriteLine("Kinek szeretnél nevet generálni?");
-            //Console.WriteLine("1: férfi");
-            //Console.WriteLine("2: nő");
-            //Console.Write("Válasz: ");
 
             List<string> genders = new List<string>()
             {
